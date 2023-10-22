@@ -6,22 +6,27 @@ import json
 Package = collections.namedtuple('Package', ['name', 'secret'])
 
 
-def __load_modules() -> list[Package]:
+def load_packages() -> dict[str, list]:
     with open('packages.json', 'r') as f:
         return json.loads(f.read())
 
 
-def __save_modules(modules: list[Package]):
+def save_packages(modules: dict[str, Package]):
     with open('packages.json', 'w') as f:
         f.write(json.dumps(modules))
 
 
-def get_module(name: str) -> Package:
-    mod = __load_modules()[name]
+def get_package(name: str) -> Package:
+    mod = load_packages()[name]
     return Package(*mod)
 
 
-def set_module(name: str, value: Package):
-    mods = __load_modules()
+def set_package(name: str, value: Package):
+    mods = load_packages()
     mods[name] = value
-    __save_modules(mods)
+    save_packages(mods)
+
+
+def get_meta(name: str) -> dict:
+    with open(f"packages/{name}/pak.json", "r") as f:
+        return json.loads(f.read())

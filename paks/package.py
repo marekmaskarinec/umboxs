@@ -8,7 +8,7 @@ import json
 
 def authorize(name, token):
     try:
-        module = db.get_module(name)
+        module = db.get_package(name)
     except KeyError:
         return False
 

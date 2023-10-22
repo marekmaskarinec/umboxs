@@ -10,7 +10,7 @@ valid_filenames = [
 ]
 
 
-@bottle.post('/package/<name>/<token>/upload/<file>')
+@bottle.post('/api/package/<name>/<token>/upload/<file>')
 def upload(name, token, file):
     if not file in valid_filenames:
         return bottle.HTTPError(400, "Invalid filename")
@@ -25,7 +25,7 @@ def upload(name, token, file):
     return bottle.HTTPResponse(status=200)
 
 
-@bottle.get('/package/<name>/download/<file>')
+@bottle.get('/api/package/<name>/download/<file>')
 def download(name, file):
     try:
         with open(f"packages/{name}/{file}", "rb") as f:
