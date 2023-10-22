@@ -33,7 +33,7 @@ def do_register():
         (package_name + str(time.time())).encode()).hexdigest()
     secret = hashlib.blake2b(token.encode()).hexdigest()
 
-    db.set_module(package_name, db.Module(package_name, secret))
+    db.set_module(package_name, db.Package(package_name, secret))
 
     os.mkdir(f"packages/{package_name}")
 

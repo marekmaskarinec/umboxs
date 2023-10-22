@@ -7,12 +7,12 @@ Package = collections.namedtuple('Package', ['name', 'secret'])
 
 
 def __load_modules() -> list[Package]:
-    with open('modules.json', 'r') as f:
+    with open('packages.json', 'r') as f:
         return json.loads(f.read())
 
 
 def __save_modules(modules: list[Package]):
-    with open('modules.json', 'w') as f:
+    with open('packages.json', 'w') as f:
         f.write(json.dumps(modules))
 
 
