@@ -6,6 +6,7 @@ import db
 import common
 
 from endpoints import register_endpoint
+from endpoints import search_endpoint
 from endpoints import package_endpoint
 
 
