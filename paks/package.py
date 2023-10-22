@@ -4,6 +4,7 @@ import hashlib
 import os
 import zipfile
 import json
+import bottle
 
 
 def authorize(name, token):
@@ -42,5 +43,20 @@ def post_upload(name, file):
                 f.write(version)
 
         case "docs.zip":
+            if not os.path.isdir(f"packages/{name}/docs"):
+                os.mkdir(f"packages/{name}/docs")
+
             with zipfile.ZipFile(f"packages/{name}/{file}", "r") as zip_ref:
-                zip_ref.extractall(f"packages/{name}/")
+                zip_ref.extractall(f"packages/{name}/docs")
+
+        case "pak.zip":
+            if not os.path.isdir(f"packages/{name}/data"):
+                os.mkdir(f"packages/{name}/data")
+
+            with zipfile.ZipFile(f"packages/{name}/{file}", "r") as zip_ref:
+                zip_ref.extractall(f"packages/{name}/data/")
+
+
+@bottle.get('/package/<name>')
+def package(name):
+    return bottle.template('package', name=name, meta=db.get_meta(name))

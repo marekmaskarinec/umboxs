@@ -1,6 +1,6 @@
 <div class="package_card_full box">
         <div>
-                <h3><a href="/packages/{{p.get('name')}}">{{p.get('name')}} {{p.get('version')}}</h3>
+                <h3><a href="/package/{{p.get('name')}}">{{p.get('name')}} {{p.get('version')}}</a></h3>
                 
                 <p>{{p.get('description')}}</p>
         </div>

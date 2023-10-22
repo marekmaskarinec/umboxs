@@ -88,3 +88,32 @@ body {
 .package_card_full ul {
         list-style: none;
 }
+
+.package {
+        display: grid;
+        grid-template-areas: "h h" "r i";
+        grid-template-columns: 70% 1fr;
+        grid-gap: 20px;
+}
+
+.package__heading {
+        grid-area: h;
+        padding-left: 20px;
+}
+
+.package__readme {
+        grid-area: r;
+}
+
+.package__readme p {
+        font-size: 0.8rem;
+        margin: 0;
+}
+
+.package__info {
+        grid-area: i;
+}
+
+.package__info p {
+        margin: 2px;
+}
