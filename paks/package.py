@@ -27,6 +27,23 @@ def post_upload(name, file):
             with open(f"packages/{name}/{file}", "r") as f:
                 pak = json.loads(f.read())
 
+            if 'name' not in pak:
+                pak['name'] = name
+            if pak['name'] != name:
+                pak['name'] = name
+            if 'version' not in pak:
+                pak['version'] = "v0.1.0"
+            if 'description' not in pak:
+                pak['description'] = ""
+            if 'author' not in pak:
+                pak['author'] = ""
+            if 'license' not in pak:
+                pak['license'] = ""
+            if 'dependencies' not in pak:
+                pak['dependencies'] = []
+            if 'link' not in pak:
+                pak['link'] = ""
+
             version = ""
             try:
                 with open(f"packages/{name}/version", "r") as f:
