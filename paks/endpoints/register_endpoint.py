@@ -6,20 +6,8 @@ import time
 import db
 
 
-@bottle.get('/api/register')
-def register():
-    return """
-        <form action="/api/register" method="post">
-                Package Name: <input name="package_name" type="text" />
-                <input value="Register" type="submit" />
-        </form>
-        """
-
-
-@bottle.post('/api/register')
-def do_register():
-    package_name = bottle.request.forms.get('package_name')
-
+@bottle.get('/api/register/<package_name>')
+def register(package_name):
     exists = True
     try:
         db.get_package(package_name)

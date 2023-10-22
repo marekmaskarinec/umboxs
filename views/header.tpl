@@ -7,7 +7,12 @@
         <header>
                 <nav>
                         <menu>
-                                <li><a href="/">PAK</a></li>
+                                <li>
+                                        <a href="/">
+                                                <img class="" src="/static/cat.png" />
+                                                PAK
+                                        </a>
+                                </li>
                                 <li><a href="/all">All packages</a></li>
                                 <li><a href="/static/docs/">Docs</a></li>
                                 
