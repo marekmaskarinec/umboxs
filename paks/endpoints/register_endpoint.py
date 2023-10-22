@@ -10,7 +10,7 @@ import db
 def register():
     return """
         <form action="/register" method="post">
-                Module Name: <input name="module_name" type="text" />
+                Package Name: <input name="package_name" type="text" />
                 <input value="Register" type="submit" />
         </form>
         """
@@ -18,22 +18,23 @@ def register():
 
 @bottle.post('/register')
 def do_register():
-    module_name = bottle.request.forms.get('module_name')
+    package_name = bottle.request.forms.get('package_name')
 
     exists = True
     try:
-        db.get_module(module_name)
+        db.get_module(package_name)
     except KeyError:
         exists = False
 
     if exists:
-        return bottle.HTTPError(409, "Module already registered")
+        return bottle.HTTPError(409, "Packages already registered")
 
-    token = hashlib.sha1((module_name + str(time.time())).encode()).hexdigest()
+    token = hashlib.sha1(
+        (package_name + str(time.time())).encode()).hexdigest()
     secret = hashlib.blake2b(token.encode()).hexdigest()
 
-    db.set_module(module_name, db.Module(module_name, secret))
+    db.set_module(package_name, db.Module(package_name, secret))
 
-    os.mkdir(f"modules/{module_name}")
+    os.mkdir(f"packages/{package_name}")
 
     return token

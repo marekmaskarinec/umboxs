@@ -1,7 +1,7 @@
 
 import bottle
 
-import module
+import package
 
 valid_filenames = [
     "pak.json",
@@ -10,25 +10,25 @@ valid_filenames = [
 ]
 
 
-@bottle.post('/module/<name>/<token>/upload/<file>')
+@bottle.post('/package/<name>/<token>/upload/<file>')
 def upload(name, token, file):
     if not file in valid_filenames:
         return bottle.HTTPError(400, "Invalid filename")
 
-    if not module.authorize(name, token):
+    if not package.authorize(name, token):
         return bottle.HTTPError(401, "Invalid token")
 
-    module.write_file(name, file, bottle.request.body.read())
+    package.write_file(name, file, bottle.request.body.read())
 
-    module.post_upload(name, file)
+    package.post_upload(name, file)
 
     return bottle.HTTPResponse(status=200)
 
 
-@bottle.get('/module/<name>/download/<file>')
+@bottle.get('/package/<name>/download/<file>')
 def download(name, file):
     try:
-        with open(f"modules/{name}/{file}", "rb") as f:
+        with open(f"packages/{name}/{file}", "rb") as f:
             return f.read()
     except FileNotFoundError:
         return bottle.HTTPError(404, "File not found")

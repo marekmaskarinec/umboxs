@@ -3,25 +3,25 @@ import json
 
 # This is very TODO. I should probably use a real database.
 
-Module = collections.namedtuple('Module', ['name', 'secret'])
+Package = collections.namedtuple('Package', ['name', 'secret'])
 
 
-def __load_modules() -> list[Module]:
+def __load_modules() -> list[Package]:
     with open('modules.json', 'r') as f:
         return json.loads(f.read())
 
 
-def __save_modules(modules: list[Module]):
+def __save_modules(modules: list[Package]):
     with open('modules.json', 'w') as f:
         f.write(json.dumps(modules))
 
 
-def get_module(name: str) -> Module:
+def get_module(name: str) -> Package:
     mod = __load_modules()[name]
-    return Module(*mod)
+    return Package(*mod)
 
 
-def set_module(name: str, value: Module):
+def set_module(name: str, value: Package):
     mods = __load_modules()
     mods[name] = value
     __save_modules(mods)
