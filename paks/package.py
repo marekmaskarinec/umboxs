@@ -1,7 +1,7 @@
 
 import hashlib
 import os
-import zipfile
+import tarfile
 import json
 import bottle
 
@@ -67,12 +67,12 @@ def post_upload(name, file):
             with zipfile.ZipFile(f"packages/{name}/{file}", "r") as zip_ref:
                 zip_ref.extractall(f"packages/{name}/docs")
 
-        case "pak.zip":
+        case "pak.tar":
             if not os.path.isdir(f"packages/{name}/data"):
                 os.mkdir(f"packages/{name}/data")
 
-            with zipfile.ZipFile(f"packages/{name}/{file}", "r") as zip_ref:
-                zip_ref.extractall(f"packages/{name}/data/")
+            with tarfile.TarFile(f"packages/{name}/{file}", "r") as tf:
+                tf.extractall(f"packages/{name}/data/")
 
 
 @bottle.get('/package/<name>')

@@ -13,14 +13,16 @@ automating builds.
   
 ## Roadmap
 
-  * fix all the bugs, sanitize all inputs
+  * replace markdown backend
   * make available through PIP
   * CI scripts for SourceHut and GitHub projects
   * publish
+  * rewrite cli tool in Umka
+  * add `pre_build_inject` and `post_build_inject`
   * documentation browser
-  * multiple init presets
   * multiple build targets
   * better registration handling
+  * rewrite server in Umka
   
 ## Not planned
 

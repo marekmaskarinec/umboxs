@@ -5,7 +5,7 @@ from paks import package
 
 valid_filenames = [
     "pak.json",
-    "pak.zip",
+    "pak.tar",
     "docs.md"
 ]
 
