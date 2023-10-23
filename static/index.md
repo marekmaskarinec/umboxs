@@ -13,7 +13,6 @@ automating builds.
   
 ## Roadmap
 
-  * replace markdown backend
   * make available through PIP
   * CI scripts for SourceHut and GitHub projects
   * publish

@@ -1,14 +1,14 @@
 % include('header.tpl', title=title)
 
 <%
-import markdown
+import mistune
 
 html = ""
 try:
         with open(filepath, 'r') as f:
                 md = f.read()
         end
-        html = markdown.markdown(md)
+        html = mistune.html(md)
 except:
         html = "<h1>404</h2><h2>File not found</h2>"
 end

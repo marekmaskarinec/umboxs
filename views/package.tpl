@@ -8,7 +8,7 @@
 
 	<div class="package__readme">
 		<%
-		import markdown
+		import mistune
 		import os
 
 		readme_path = os.path.join("packages", name, "data", meta.get('readme'))
@@ -22,7 +22,7 @@
 			pass
 		end
 
-		html = markdown.markdown(content)
+		html = mistune.html(content)
 		%>
 
 		<p>README</p>
