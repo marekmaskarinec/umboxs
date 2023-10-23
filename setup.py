@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages
@@ -20,5 +21,3 @@ setup(
     license=license,
     packages=find_packages()
 )
-
-

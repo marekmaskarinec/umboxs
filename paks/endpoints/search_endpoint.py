@@ -2,7 +2,7 @@
 import bottle
 import json
 
-import common
+from paks import common
 
 
 @bottle.get('/api/search/<query>')

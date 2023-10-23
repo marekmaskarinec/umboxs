@@ -1,11 +1,10 @@
 
+import db
 import hashlib
 import os
 import zipfile
 import json
 import bottle
-
-from . import db
 
 
 def authorize(name, token):

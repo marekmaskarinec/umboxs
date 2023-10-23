@@ -3,7 +3,7 @@ import hashlib
 import os
 import time
 
-import db
+from paks import db
 
 
 @bottle.get('/api/register/<package_name>')

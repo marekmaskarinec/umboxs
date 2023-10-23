@@ -1,7 +1,7 @@
 
 import bottle
 
-import package
+from paks import package
 
 valid_filenames = [
     "pak.json",

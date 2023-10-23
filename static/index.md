@@ -13,9 +13,9 @@ automating builds.
   
 ## Roadmap
 
-  * CI scripts for SourceHut and GitHub projects
   * fix all the bugs, sanitize all inputs
   * make available through PIP
+  * CI scripts for SourceHut and GitHub projects
   * publish
   * documentation browser
   * multiple init presets

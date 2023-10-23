@@ -1,5 +1,5 @@
 
-from . import db
+import db
 
 
 def search(query: str) -> list:
