@@ -141,3 +141,16 @@ body {
 .package__info p {
         margin: 2px;
 }
+
+table {
+        background-color: #e27b0844;
+        padding: 8px;
+
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+}
+
+th {
+        text-align: left;
+}
