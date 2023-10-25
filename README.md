@@ -6,7 +6,7 @@ A server for PAK.
 
 ```
 git clone https://git.sr.ht/~mrms/paks
-python -r requirements.txt
+pip install -r requirements.txt
 python setup.py install
 ```
 
