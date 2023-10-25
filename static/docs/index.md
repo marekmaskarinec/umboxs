@@ -27,6 +27,12 @@ pak upload -t &lt;token&gt; pak.json
 pak uplaod -t &lt;token&gt; pak.tar
 </pre></code>
 
+## Automatic builds
+
+If you use SourceHut, you can use the
+[CI script](https://git.sr.ht/~mrms/paks/tree/master/item/scripts/srht-build.yml)
+to make automatic builds of your packages.
+
 ## Build process
 
 PAK offers a build functionality. It works in the following way:
