@@ -10,11 +10,10 @@
 		<%
 		import mistune
 		import os
-
-		readme_path = os.path.join("packages", name, "data", meta.get('readme'))
-
+		
 		content = "No readme"
 		try:
+			readme_path = os.path.join("packages", name, "data", meta.get('readme'))
 			with open(readme_path) as f:
 				content = f.read()
 			end

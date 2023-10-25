@@ -14,7 +14,7 @@ def authorize(name, token):
     except KeyError:
         return False
 
-    return module.secret == hashlib.blake2b(token.encode()).hexdigest()
+    return module.secret == token
 
 
 def write_file(name, file, data):

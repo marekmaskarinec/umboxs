@@ -28,5 +28,15 @@ def set_package(name: str, value: Package):
 
 
 def get_meta(name: str) -> dict:
-    with open(f"packages/{name}/pak.json", "r") as f:
-        return json.loads(f.read())
+    try:
+        with open(f"packages/{name}/pak.json", "r") as f:
+            return json.loads(f.read())
+    except:
+        return {
+            "name": name,
+            "description": "No description",
+            "version": "0.0.0",
+            "author": "Unknown",
+            "license": "Unknown",
+            "dependencies": []
+        }

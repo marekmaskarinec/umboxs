@@ -129,7 +129,7 @@ body {
         grid-area: r;
 }
 
-.package__readme p {
+.package__readme p:nth-child(1) {
         font-size: 0.8rem;
         margin: 0;
 }
