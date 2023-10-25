@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import bottle
 import os
+import argparse
 
 from . import db
 from . import common
@@ -54,4 +55,13 @@ def notapi_filter(config):
 
 
 if __name__ == "__main__":
-    bottle.run(host='localhost', port=8080, debug=True)
+    par = argparse.ArgumentParser(prog="PAKS", description='PAK server')
+
+    par.add_argument('--host', type=str, default='localhost',
+                     help='Host to bind to')
+    par.add_argument('--port', type=int, default=4832, help='Port to bind to')
+    par.add_argument('--debug', action='store_true', help='Enable debug mode')
+
+    ns = par.parse_args()
+
+    bottle.run(host=ns.host, port=ns.port, debug=ns.debug)
