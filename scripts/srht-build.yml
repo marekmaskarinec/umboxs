@@ -17,6 +17,7 @@ tasks:
     ./setup.py install --user
 - build: |
     cd $project
+    python3 -m pak update
     python3 -m pak build
 - deploy: |
     cd $project
