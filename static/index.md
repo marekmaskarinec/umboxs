@@ -9,14 +9,22 @@ Logo credit: Jakub Víta
 
 ## Getting started
 
-First install the CLI tool.
-
-```
+```sh
+# Clone the PAK source
 git clone https://git.sr.ht/~mrms/pak
-python setup.py install
+cd pak
+# Install pak
+sudo python setup.py install
+# Make a new project directory
+mkdir mypak
+cd mypak
+# Setup a tophat project
+python -m pak init tophat
+# Run the project!
+python -m pak run
 ```
 
-Then you can continue by reading the [documentation](/static/docs/index.md).
+Now you can continue by reading the [documentation](/static/docs/index.md).
 
 ## Features
 
