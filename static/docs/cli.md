@@ -35,6 +35,9 @@ If the package has a run script defined (see `run`, `run_posix` and
 `run_windows` in [`pak.json` reference](pakjson.md)), running `pak run args`
 will execute the run script and pass the excess flags to it.
 
+> NOTE: When running a package, the directories of all dependencies are added
+> to the system PATH.
+
 ## Managing dependencies
 
 One of main PAK features is dependency management. You can add dependencies

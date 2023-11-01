@@ -1,4 +1,5 @@
 packages
 packages.json
 token
+venv
 __pycache__
