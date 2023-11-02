@@ -38,6 +38,8 @@
 		<p>To add this package to your project run:</p>
 		<code><pre>pak install {{name}}</pre></code>
 		
+		<p>Or download as a <a href="/api/package/{{name}}/download/pak.tar">tar</a>.</p>
+		
 		<hr>
 		
 		<h3>Dependencies</h3>
@@ -50,6 +52,22 @@
 			% end
 		</ul>
 		% end
+		
+		<h3>Last updated</h3>
+		<%
+		import datetime
+		import os.path
+		
+		path = os.path.join("packages", meta.get('name'), "pak.json")
+		lastupdated = "No uploads yet."
+
+		if os.path.isfile(path):
+			lastupdated = datetime.datetime.fromtimestamp(
+				int(os.path.getmtime(path))
+			).isoformat()
+		end
+		%>
+		<p>{{lastupdated}}</p>
 	</div>
 </div>
 

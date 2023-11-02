@@ -2,6 +2,7 @@
 import hashlib
 import os
 import tarfile
+import zipfile
 import json
 import bottle
 
