@@ -64,4 +64,5 @@ if __name__ == "__main__":
 
     ns = par.parse_args()
 
+    bottle.TEMPLATES.clear()
     bottle.run(host=ns.host, port=ns.port, debug=ns.debug)
