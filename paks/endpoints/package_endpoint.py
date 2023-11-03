@@ -2,6 +2,7 @@
 import bottle
 
 from paks import package
+from paks import db
 
 valid_filenames = [
     "pak.json",
@@ -14,6 +15,11 @@ valid_filenames = [
 def upload(name, token, file):
     if not file in valid_filenames:
         return bottle.HTTPError(400, "Invalid filename")
+
+    try:
+        db.get_package(name)
+    except:
+        return bottle.HTTPError(404, "Package not found")
 
     if not package.authorize(name, token):
         return bottle.HTTPError(401, "Invalid token")
