@@ -2,6 +2,7 @@ import bottle
 import hashlib
 import os
 import time
+import secrets
 
 from paks import db
 
@@ -17,8 +18,7 @@ def register(package_name):
     if exists:
         return bottle.HTTPError(409, "Packages already registered")
 
-    token = hashlib.sha1(
-        (package_name + str(time.time())).encode()).hexdigest()
+    token = secrets.token_hex(32)
     secret = hashlib.blake2b(token.encode()).hexdigest()
 
     db.set_package(package_name, db.Package(package_name, secret))
