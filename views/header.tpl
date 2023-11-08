@@ -2,6 +2,7 @@
 <head>
         <title>{{title}} | PAK</title>
         <link rel="stylesheet" type="text/css" href="/static/style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
         <header>

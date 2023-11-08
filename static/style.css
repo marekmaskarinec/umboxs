@@ -21,7 +21,7 @@ a:hover {
 }
 
 .no-aa {
-        image-rendering: optimizeSpeed;
+        image-rendering: optimizespeed;
         image-rendering: -moz-crisp-edges;
         image-rendering: -o-crisp-edges;
         image-rendering: -webkit-optimize-contrast;
@@ -32,6 +32,7 @@ a:hover {
 
 header menu {
         display: flex;
+        flex-wrap: wrap;
         font-size: 1.8rem;
         text-transform: uppercase;
 }
@@ -153,4 +154,26 @@ table {
 
 th {
         text-align: left;
+}
+
+pre {
+        max-width: 100%;
+        padding: 10px;
+        border: solid black 0px;
+        border-radius: 10px;
+        background-color: var(--color-fg);
+        color: var(--color-bg);
+        overflow: scroll;
+}
+
+@media screen and (max-width: 800px) {
+        .package {
+                grid-template-areas: "h" "i" "r";
+                grid-template-columns: 1fr;
+        }
+
+        body {
+                padding-left: 20px;
+                padding-right: 20px;
+        }
 }
