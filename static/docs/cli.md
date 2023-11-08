@@ -72,8 +72,8 @@ For a package to be valid, you need to upload `pak.json` and `pak.tar` files.
 You can upload them like this:
 
 ```
-pak upload -t &lt;token&gt; pak.json
-pak uplaod -t &lt;token&gt; pak.tar
+pak upload -t <token> pak.json
+pak uplaod -t <token> pak.tar
 ```
 
 ## Automatic builds

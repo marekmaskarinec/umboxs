@@ -5,7 +5,7 @@ This file is in the root directory of ever PAK package. It specifies metadata ab
 
 ## Example
 
-<code><pre>
+```
 {
     "name": "awesome_package",
     "version": "v0.1.0",
@@ -18,7 +18,7 @@ This file is in the root directory of ever PAK package. It specifies metadata ab
     "include": ["awesome.um"],
     "run": "umka awesome.um"
 }
-</code></pre>
+```
 
 ## Options
 
