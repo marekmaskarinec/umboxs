@@ -34,11 +34,12 @@ Now you can continue by reading the [documentation](/static/docs/index.md).
   
 ## Roadmap
 
-  * make available through PIP
-  * CI scripts for GitHub projects
   * rewrite cli tool in Umka
-  * add `pre_build_inject` and `post_build_inject`
+  * switch to PostgreSQL backend
   * documentation browser
+  * rewrite project documentation
+  * CI scripts for GitHub projects
+  * add `pre_build_inject` and `post_build_inject`
   * multiple build targets
   * better registration handling
   * rewrite server in Umka

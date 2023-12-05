@@ -21,7 +21,7 @@ def register(package_name):
     token = secrets.token_hex(32)
     secret = hashlib.blake2b(token.encode()).hexdigest()
 
-    db.set_package(package_name, db.Package(package_name, secret))
+    db.set_package(db.Package(package_name, secret))
 
     os.mkdir(f"packages/{package_name}")
 
