@@ -27,6 +27,21 @@ def file(filepath):
     return bottle.static_file(filepath, root='static')
 
 
+@bottle.get('/docs/<filepath:path>')
+def docs(filepath):
+    return bottle.template('docs',
+                           title=f"{filepath}",
+                           filepath=os.path.join("static/docs", filepath),
+                           dir='static/docs',
+                           prefix='/docs')
+
+
+@bottle.get('/docs')
+@bottle.get('/docs/')
+def docs_empty():
+    return docs('index.md')
+
+
 @bottle.get('/')
 @bottle.get('')
 def root():
@@ -73,7 +88,7 @@ if __name__ == "__main__":
 
     ns = par.parse_args()
 
-    db.init(ns.db_name, ns.db_user, ns.db_password, ns.db_host)
+    # db.init(ns.db_name, ns.db_user, ns.db_password, ns.db_host)
 
     bottle.TEMPLATES.clear()
     bottle.run(host=ns.host, port=ns.port, debug=ns.debug)

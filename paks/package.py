@@ -79,3 +79,19 @@ def post_upload(name, file):
 @bottle.get('/package/<name>')
 def package(name):
     return bottle.template('package', name=name, meta=db.get_meta(name))
+
+
+@bottle.get('/package/<name>/browse/<path:path>')
+def browse(name, path):
+    return bottle.template('docs',
+                           title=f"Browse {name}",
+                           filepath=os.path.join(
+                               "packages", name, "data", path),
+                           dir=os.path.join("packages", name, "data"),
+                           prefix=f"/package/{name}/browse")
+
+
+@bottle.get('/package/<name>/browse')
+@bottle.get('/package/<name>/browse/')
+def browse_empty(name):
+    return browse(name, "README.md")

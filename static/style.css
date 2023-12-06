@@ -143,6 +143,37 @@ body {
         margin: 2px;
 }
 
+.docs {
+        display: grid;
+        grid-template-areas: "t c";
+        grid-template-columns: 256px 1fr;
+        grid-gap: 20px;
+}
+
+.docs__tree {
+        grid-area: t;
+        overflow-x: scroll;
+}
+
+.docs__tree ul {
+        list-style: none;
+}
+
+.docs__tree ul span {
+        display: inline-block;
+        font-weight: bold;
+        background-color: var(--color-fg);
+        color: var(--color-bg);
+        min-width: calc(100% - 10px);
+        padding: 2px;
+        padding-left: 5px;
+        margin-top: 4px;
+}
+
+.docs__content {
+        grid-area: c;
+}
+
 table {
         background-color: #e27b0844;
         padding: 8px;
@@ -169,6 +200,11 @@ pre {
 @media screen and (max-width: 800px) {
         .package {
                 grid-template-areas: "h" "i" "r";
+                grid-template-columns: 1fr;
+        }
+        
+        .docs {
+                grid-template-areas: "t" "c";
                 grid-template-columns: 1fr;
         }
 

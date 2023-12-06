@@ -15,7 +15,7 @@
                                         </a>
                                 </li>
                                 <li><a href="/all">All packages</a></li>
-                                <li><a href="/static/docs/">Docs</a></li>
+                                <li><a href="/docs">Docs</a></li>
                                 
                                 <li>
                                         <form action="/search" method="post">
