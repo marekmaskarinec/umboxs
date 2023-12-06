@@ -13,6 +13,7 @@
         <%
         import mistune
         import os
+        from paks import mmdoc
 
         _, ext = os.path.splitext(filepath)
 
@@ -22,7 +23,9 @@
                         data = f.read()
                 end
             if ext == ".md":
-                        html = mistune.html(data)
+                html = mistune.html(data)
+            elif ext == ".um":
+                html = mistune.html(mmdoc.genMd(filepath, data)) + f"<hr>\n\n<pre><code>{data}</code></pre>"
             else:
                 html = f"<pre><code>{data}</code></pre>"
             end

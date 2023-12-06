@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
     ns = par.parse_args()
 
-    # db.init(ns.db_name, ns.db_user, ns.db_password, ns.db_host)
+    db.init(ns.db_name, ns.db_user, ns.db_password, ns.db_host)
 
     bottle.TEMPLATES.clear()
     bottle.run(host=ns.host, port=ns.port, debug=ns.debug)
