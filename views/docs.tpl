@@ -26,6 +26,8 @@
                 html = mistune.html(data)
             elif ext == ".um":
                 html = mistune.html(mmdoc.genMd(filepath, data)) + f"<hr>\n\n<pre><code>{data}</code></pre>"
+            elif ext == ".html":
+                html = data
             else:
                 html = f"<pre><code>{data}</code></pre>"
             end

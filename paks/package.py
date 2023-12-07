@@ -87,6 +87,7 @@ def browse(name, path):
                            title=f"Browse {name}",
                            filepath=os.path.join(
                                "packages", name, "data", path),
+                           wl=[".md", ".html", ".txt", ".um"],
                            dir=os.path.join("packages", name, "data"),
                            prefix=f"/package/{name}/browse")
 

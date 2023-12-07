@@ -32,6 +32,7 @@ def docs(filepath):
     return bottle.template('docs',
                            title=f"{filepath}",
                            filepath=os.path.join("static/docs", filepath),
+                           wl=['.md', '.html'],
                            dir='static/docs',
                            prefix='/docs')
 
