@@ -31,7 +31,8 @@
 	
 	<div class="package__info">
 		<p><a href="{{meta.get('link')}}">Homepage</a></p>
-		<p>License: {{meta.get('license')}}</p>
+		<p><a href="/package/{{name}}/browse">Documentation</a></p>
+		<p>License: <a href="/package/{{name}}/browse/LICENSE">{{meta.get('license')}}</a></p>
 		
 		<hr>
 		
