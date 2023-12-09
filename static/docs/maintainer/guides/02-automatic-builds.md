@@ -33,16 +33,16 @@ environment:
     NAME: <your_package_name>
 tasks:
 - setup: |
-    curl https://pak.tophat2d.dev/static/pak_portable.zip -O
-    unzip pak_portable.zip
+    curl https://umbox.tophat2d.dev/static/umbox_portable.zip -O
+    unzip umbox_portable.zip
 - build: |
     cd $NAME
-    ../pak_portable/pak update
-    ../pak_portable/pak build
+    ../umbox_portable/umbox update
+    ../umbox_portable/umbox build
 - deploy: |
     cd $NAME
     set +x
-    ../pak_portable/pak upload `cat ../.secret` pak.tar
-    ../pak_portable/pak upload `cat ../.secret` pak.json
+    ../umbox_portable/umbox upload `cat ../.secret` box.tar
+    ../umbox_portable/umbox upload `cat ../.secret` box.json
     set -x
 ```

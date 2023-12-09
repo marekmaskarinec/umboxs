@@ -9,7 +9,7 @@ Just to recapitulate, you can create a new package like this:
 ```
 mkdir my_package
 cd my_package
-pak init
+umbox init
 ```
 
 When you have your package ready, make sure it follows these rules:
@@ -24,7 +24,7 @@ If you follow these rules, you can continue by registering your package. In your
 package directory, run this command:
 
 ```
-pak register
+umbox register
 ```
 
 The command will print out a 64-character long token. Save this token somewhere
@@ -33,7 +33,7 @@ lost your token, are suspicious that someone might've stolen it or have some
 other similar issues, please contact me using my email
 [marek@mrms.cz](mailto:marek@mrms.cz).
 
-After successfully registering a package, you can upload files to it. PAK accepts
-these files: `pak.json`, `pak.tar` and `init.tar`. The first two are required
+After successfully registering a package, you can upload files to it. UmBox accepts
+these files: `box.json`, `box.tar` and `init.tar`. The first two are required
 for the package to be valid. The last one is optional and is used when your package
-is passed as an argument to the `pak init` command.
+is passed as an argument to the `umbox init` command.

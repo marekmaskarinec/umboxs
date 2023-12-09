@@ -4,7 +4,7 @@ import os
 import time
 import secrets
 
-from paks import db
+from umboxs import db
 
 
 @bottle.get('/api/register/<package_name>')

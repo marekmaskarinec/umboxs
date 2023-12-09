@@ -13,7 +13,7 @@
         <%
         import mistune
         import os
-        from paks import mmdoc
+        from umboxs import mmdoc
 
         _, ext = os.path.splitext(filepath)
 

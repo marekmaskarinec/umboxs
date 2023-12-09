@@ -1,12 +1,12 @@
 
 import bottle
 
-from paks import package
-from paks import db
+from umboxs import package
+from umboxs import db
 
 valid_filenames = [
-    "pak.json",
-    "pak.tar",
+    "box.json",
+    "box.tar",
     "docs.md"
 ]
 

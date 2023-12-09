@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-        <title>{{title}} | PAK</title>
+        <title>{{title}} | UmBox</title>
         <link rel="stylesheet" type="text/css" href="/static/style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -11,7 +11,7 @@
                                 <li>
                                         <a href="/">
                                                 <img class="" src="/static/cat.png" />
-                                                PAK
+                                                UmBox
                                         </a>
                                 </li>
                                 <li><a href="/all">All packages</a></li>

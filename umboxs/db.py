@@ -41,7 +41,7 @@ def set_package(package: Package):
 
 def get_meta(name: str) -> dict:
     try:
-        with open(f"packages/{name}/pak.json", "r") as f:
+        with open(f"packages/{name}/box.json", "r") as f:
             return json.loads(f.read())
     except:
         return {

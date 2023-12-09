@@ -25,26 +25,26 @@ def write_file(name, file, data):
 
 def post_upload(name, file):
     match os.path.basename(file):
-        case "pak.json":
+        case "box.json":
             with open(f"packages/{name}/{file}", "r") as f:
-                pak = json.loads(f.read())
+                box = json.loads(f.read())
 
-            if 'name' not in pak:
-                pak['name'] = name
-            if pak['name'] != name:
-                pak['name'] = name
-            if 'version' not in pak:
-                pak['version'] = "v0.1.0"
-            if 'description' not in pak:
-                pak['description'] = ""
-            if 'author' not in pak:
-                pak['author'] = ""
-            if 'license' not in pak:
-                pak['license'] = ""
-            if 'dependencies' not in pak:
-                pak['dependencies'] = []
-            if 'link' not in pak:
-                pak['link'] = ""
+            if 'name' not in box:
+                box['name'] = name
+            if box['name'] != name:
+                box['name'] = name
+            if 'version' not in box:
+                box['version'] = "v0.1.0"
+            if 'description' not in box:
+                box['description'] = ""
+            if 'author' not in box:
+                box['author'] = ""
+            if 'license' not in box:
+                box['license'] = ""
+            if 'dependencies' not in box:
+                box['dependencies'] = []
+            if 'link' not in box:
+                box['link'] = ""
 
             version = ""
             try:
@@ -53,10 +53,10 @@ def post_upload(name, file):
             except:
                 pass
 
-            if version.startswith(pak["version"]):
-                version = f"{pak['version']}-{int(version.split('-')[1]) + 1}"
+            if version.startswith(box["version"]):
+                version = f"{box['version']}-{int(version.split('-')[1]) + 1}"
             else:
-                version = f"{pak['version']}-0"
+                version = f"{box['version']}-0"
 
             with open(f"packages/{name}/version", "w") as f:
                 f.write(version)
@@ -68,7 +68,7 @@ def post_upload(name, file):
             with zipfile.ZipFile(f"packages/{name}/{file}", "r") as zip_ref:
                 zip_ref.extractall(f"packages/{name}/docs")
 
-        case "pak.tar":
+        case "box.tar":
             if not os.path.isdir(f"packages/{name}/data"):
                 os.mkdir(f"packages/{name}/data")
 

@@ -37,9 +37,9 @@
 		<hr>
 		
 		<p>To add this package to your project run:</p>
-		<code><pre>pak install {{name}}</pre></code>
+		<code><pre>umbox install {{name}}</pre></code>
 		
-		<p>Or download as a <a href="/api/package/{{name}}/download/pak.tar">tar</a>.</p>
+		<p>Or download as a <a href="/api/package/{{name}}/download/box.tar">tar</a>.</p>
 		
 		<hr>
 		
@@ -59,7 +59,7 @@
 		import datetime
 		import os.path
 		
-		path = os.path.join("packages", meta.get('name'), "pak.json")
+		path = os.path.join("packages", meta.get('name'), "box.json")
 		lastupdated = "No uploads yet."
 
 		if os.path.isfile(path):

@@ -1,6 +1,6 @@
-# `pak.json` File
+# `box.json` File
 
-This file is in the root directory of ever PAK package. It specifies metadata about the package.
+This file is in the root directory of ever UmBox package. It specifies metadata about the package.
 
 ## Example
 
@@ -60,7 +60,7 @@ A list of files or directories that shall be packaged with the build.
 
 ### `run`
 
-A command used when `pak run` is executed.
+A command used when `umbox run` is executed.
 
 ### `run_posix`
 

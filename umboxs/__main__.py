@@ -71,7 +71,7 @@ def notapi_filter(config):
 
 
 if __name__ == "__main__":
-    par = argparse.ArgumentParser(prog="PAKS", description='PAK server')
+    par = argparse.ArgumentParser(prog="UmBoxS", description='UmBox server')
 
     par.add_argument('--host', type=str, default='localhost',
                      help='Host to bind to')
