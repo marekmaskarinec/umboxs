@@ -40,7 +40,7 @@ def docs(filepath):
 @bottle.get('/docs')
 @bottle.get('/docs/')
 def docs_empty():
-    return docs('index.md')
+    return docs('01-index.md')
 
 
 @bottle.get('/')

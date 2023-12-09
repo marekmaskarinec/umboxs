@@ -146,17 +146,19 @@ body {
 .docs {
         display: grid;
         grid-template-areas: "t c";
-        grid-template-columns: 256px 1fr;
+        grid-template-columns: 300px 1fr;
         grid-gap: 20px;
 }
 
 .docs__tree {
         grid-area: t;
         overflow-x: scroll;
+        white-space: nowrap;
 }
 
 .docs__tree ul {
         list-style: none;
+        padding-left: 20px;
 }
 
 .docs__tree ul span {

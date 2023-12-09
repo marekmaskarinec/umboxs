@@ -1,5 +1,4 @@
-
-## `pak.json` file
+# `pak.json` File
 
 This file is in the root directory of ever PAK package. It specifies metadata about the package.
 
