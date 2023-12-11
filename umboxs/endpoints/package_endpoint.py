@@ -1,5 +1,6 @@
 
 import bottle
+import os
 
 from umboxs import package
 from umboxs import db
@@ -7,6 +8,7 @@ from umboxs import db
 valid_filenames = [
     "box.json",
     "box.tar",
+    "init.tar",
     "docs.md"
 ]
 
@@ -33,6 +35,11 @@ def upload(name, token, file):
 
 @bottle.get('/api/package/<name>/download/<file>')
 def download(name, file):
+    try:
+        db.get_package(name)
+    except:
+        return bottle.HTTPError(404, "Package not found")
+
     try:
         return bottle.static_file(file, root=f"packages/{name}")
     except FileNotFoundError:
