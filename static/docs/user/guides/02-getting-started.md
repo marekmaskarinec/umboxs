@@ -9,7 +9,7 @@ mkdir hello
 cd hello
 ```
 
-Now you can use UmBox's init functionality to create a new package.
+Now you can use UmBox's init functionality to create a new box.
 
 ```
 umbox init umka

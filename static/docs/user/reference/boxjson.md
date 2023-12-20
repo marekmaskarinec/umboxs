@@ -1,18 +1,18 @@
 # `box.json` File
 
-This file is in the root directory of ever UmBox package. It specifies metadata about the package.
+This file is in the root directory of every box. It specifies metadata about the it.
 
 ## Example
 
 ```
 {
-    "name": "awesome_package",
+    "name": "awesome_box",
     "version": "v0.1.0",
     "author": "John Doe",
     "license": "MIT",
-    "description": "John Doe's awesome package for doing awesome stuff",
+    "description": "John Doe's awesome box for doing awesome stuff",
     "readme": "README.md",
-    "link": "https://git.sr.ht/~jdoe/awesome_package",
+    "link": "https://git.sr.ht/~jdoe/awesome_box",
     "dependencies": ["coulau", "umka"],
     "include": ["awesome.um"],
     "run": "umka awesome.um"
@@ -23,16 +23,16 @@ This file is in the root directory of ever UmBox package. It specifies metadata 
 
 ### `name`
 
-This sets the package's name. It has to match the name specified when
-registering the package. If it does not match, it will be changed accordingly.
+This sets the box's name. It has to match the name specified when
+registering the box. If it does not match, it will be changed accordingly.
 
 ### `version`
 
-Version of the package.
+Version of the box.
 
 ### `author`
 
-Author of the package.
+Author of the box.
 
 ### `license`
 
@@ -40,19 +40,19 @@ Name of the license.
 
 ### `description`
 
-Short description of the package.
+Short description of the box.
 
 ### `readme`
 
-Path to the package's readme file.
+Path to the box's readme file.
 
 ### `link`
 
-Link to the package's homepage or repository.
+Link to the box's homepage or repository.
 
 ### `dependencies`
 
-A list of packages this package depends on.
+A list of boxes this box depends on.
 
 ### `include`
 
@@ -64,11 +64,11 @@ A command used when `umbox run` is executed.
 
 ### `run_posix`
 
-A version of the ran command used on POSIX systems.
+A version of the run command used on POSIX systems.
 
 ### `run_windows`
 
-A version of the ran command used on Windows systems.
+A version of the run command used on Windows systems.
 
 ### `pre_build`
 

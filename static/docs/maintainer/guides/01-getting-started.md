@@ -1,27 +1,27 @@
 # Getting Started
 
-This guide will show you how to get started with publishing your own package.
+This guide will show you how to get started with publishing your own box.
 It assumes that you are already familiar with the `user/` section of the
 documentation.
 
-Just to recapitulate, you can create a new package like this:
+Just to recapitulate, you can create a new box like this:
 
 ```
-mkdir my_package
-cd my_package
+mkdir my_box
+cd my_box
 umbox init
 ```
 
-When you have your package ready, make sure it follows these rules:
+When you have your box ready, make sure it follows these rules:
 
 - You have chosen some kind of license. It's generally advised against using the GPL, but it's
   not prohibited.
-- You have written a proper readme file for your package. This file will be shown on your
-  package's main page.
-- You have properly set up your package's build.
+- You have written a proper readme file for your box. This file will be shown on your
+  box's main page.
+- You have properly set up your box's build.
 
-If you follow these rules, you can continue by registering your package. In your
-package directory, run this command:
+If you follow these rules, you can continue by registering your box. In your
+directory, run this command:
 
 ```
 umbox register
@@ -33,7 +33,7 @@ lost your token, are suspicious that someone might've stolen it or have some
 other similar issues, please contact me using my email
 [marek@mrms.cz](mailto:marek@mrms.cz).
 
-After successfully registering a package, you can upload files to it. UmBox accepts
+After successfully registering a box, you can upload files to it. UmBox accepts
 these files: `box.json`, `box.tar` and `init.tar`. The first two are required
-for the package to be valid. The last one is optional and is used when your package
+for the box to be valid. The last one is optional and is used when your box name
 is passed as an argument to the `umbox init` command.

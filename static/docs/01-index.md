@@ -3,7 +3,7 @@
 Welcome to the UmBox documentation. The documentation is structured into three sections:
 
 - [user](user/) - for people who use UmBox to manage libraries
-- [maintainer](maintainer/) - for people who want to publish and maintain their package
+- [maintainer](maintainer/) - for people who want to publish and maintain their box
 - [contributor](contributor/) - for people who want to contribute to UmBox source code
 
 You can quickly navigate through the documents using the file tree on the right side of the page.

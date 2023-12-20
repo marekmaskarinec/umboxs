@@ -1,11 +1,11 @@
 # Automatic Builds
 
-This guide will show you how to automatically update your package's data
+This guide will show you how to automatically update your box's data
 after every commit.
 
 ## GitHub
 
-Currently, no package uses GitHub's CI, but the approach should be similar
+Currently, no box uses GitHub's CI, but the approach should be similar
 to SourceHut.
 
 ## SourceHut
@@ -28,9 +28,9 @@ packages:
 secrets:
 - <your_secret>
 sources:
-- <your_package_url>
+- <your_box_url>
 environment:
-    NAME: <your_package_name>
+    NAME: <your_box_name>
 tasks:
 - setup: |
     curl https://umbox.tophat2d.dev/static/umbox_portable.zip -O
