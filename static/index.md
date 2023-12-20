@@ -9,15 +9,15 @@ Logo credit: Jakub Víta
 ## Getting started
 
 ```sh
-curl https://umbox.tophat2d.dev/setup | sh
+curl -L https://umbox.tophat2d.dev/dl/setup.sh | sh
 ```
 
-Now you can continue by reading the [documentation](/static/docs/index.md).
+Now you can continue by reading the [documentation](/docs/user/guides/02-getting-started.md).
 
 ## Features
 
 - dependency management
-- Web UI with automatic documentation generator
+- Web UI with automatic documentation generation
 - custom build and run scripts
 
 ## Not planned
