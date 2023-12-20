@@ -27,6 +27,11 @@ def file(filepath):
     return bottle.static_file(filepath, root='static')
 
 
+@bottle.get('/dl/<filepath:path>')
+def dl(filepath):
+    bottle.redirect(f"https://mrms.cz/dl/{filepath}")
+
+
 @bottle.get('/docs/<filepath:path>')
 def docs(filepath):
     return bottle.template('docs',
@@ -86,10 +91,12 @@ if __name__ == "__main__":
                      default='postgres', help='Database password')
     par.add_argument('--db-name', type=str,
                      default='postgres', help='Database name')
+    par.add_argument('--no-db', action='store_true', default=False)
 
     ns = par.parse_args()
 
-    db.init(ns.db_name, ns.db_user, ns.db_password, ns.db_host)
+    if not ns.no_db:
+        db.init(ns.db_name, ns.db_user, ns.db_password, ns.db_host)
 
     bottle.TEMPLATES.clear()
     bottle.run(host=ns.host, port=ns.port, debug=ns.debug)
