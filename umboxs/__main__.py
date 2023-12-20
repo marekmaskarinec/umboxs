@@ -29,7 +29,7 @@ def file(filepath):
 
 @bottle.get('/dl/<filepath:path>')
 def dl(filepath):
-    bottle.redirect(f"https://mrms.cz/dl/{filepath}")
+    bottle.redirect(f"https://mrms.cz/dl/umbox/{filepath}")
 
 
 @bottle.get('/docs/<filepath:path>')
