@@ -42,7 +42,6 @@ tasks:
 - deploy: |
     cd $NAME
     set +x
-    ../umbox_portable/umbox upload `cat ../.secret` box.tar
     ../umbox_portable/umbox upload `cat ../.secret` box.json
     set -x
 ```

@@ -6,10 +6,8 @@ from umboxs import package
 from umboxs import db
 
 valid_filenames = [
-    "box.json",
     "box.tar",
-    "init.tar",
-    "docs.md"
+    "init.tar"
 ]
 
 

@@ -59,7 +59,7 @@
 		import datetime
 		import os.path
 		
-		path = os.path.join("packages", meta.get('name'), "box.json")
+		path = os.path.join("packages", meta.get('name'), "data", "box.json")
 		lastupdated = "No uploads yet."
 
 		if os.path.isfile(path):

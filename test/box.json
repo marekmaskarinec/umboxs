@@ -1,0 +1,13 @@
+{
+	"name": "test",
+	"version": "v0.1.0",
+	"author": "",
+	"license": "",
+	"description": "",
+	"readme": "README.md",
+	"link": "",
+	"dependencies": [
+	],
+	"include": [
+	]
+}

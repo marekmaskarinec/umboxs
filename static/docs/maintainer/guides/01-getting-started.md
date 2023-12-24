@@ -34,6 +34,6 @@ other similar issues, please contact me using my email
 [marek@mrms.cz](mailto:marek@mrms.cz).
 
 After successfully registering a box, you can upload files to it. UmBox accepts
-these files: `box.json`, `box.tar` and `init.tar`. The first two are required
-for the box to be valid. The last one is optional and is used when your box name
+these files: `box.tar` and `init.tar`. The former is required
+for the box to be valid. The latter is optional and is used when your box name
 is passed as an argument to the `umbox init` command.

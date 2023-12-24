@@ -25,8 +25,15 @@ def write_file(name, file, data):
 
 def post_upload(name, file):
     match os.path.basename(file):
-        case "box.json":
-            with open(f"packages/{name}/{file}", "r") as f:
+        case "box.tar":
+            if not os.path.isdir(f"packages/{name}/data"):
+                os.mkdir(f"packages/{name}/data")
+
+            with tarfile.TarFile(f"packages/{name}/{file}", "r") as tf:
+                tf.extractall(f"packages/{name}/data/")
+
+            box = {}
+            with open(f"packages/{name}/data/box.json", "r") as f:
                 box = json.loads(f.read())
 
             if 'name' not in box:
@@ -46,6 +53,9 @@ def post_upload(name, file):
             if 'link' not in box:
                 box['link'] = ""
 
+            with open(f"packages/{name}/box.json", "w") as f:
+                f.write(json.dumps(box, indent=4))
+
             version = ""
             try:
                 with open(f"packages/{name}/version", "r") as f:
@@ -60,20 +70,6 @@ def post_upload(name, file):
 
             with open(f"packages/{name}/version", "w") as f:
                 f.write(version)
-
-        case "docs.zip":
-            if not os.path.isdir(f"packages/{name}/docs"):
-                os.mkdir(f"packages/{name}/docs")
-
-            with zipfile.ZipFile(f"packages/{name}/{file}", "r") as zip_ref:
-                zip_ref.extractall(f"packages/{name}/docs")
-
-        case "box.tar":
-            if not os.path.isdir(f"packages/{name}/data"):
-                os.mkdir(f"packages/{name}/data")
-
-            with tarfile.TarFile(f"packages/{name}/{file}", "r") as tf:
-                tf.extractall(f"packages/{name}/data/")
 
 
 @bottle.get('/package/<name>')
