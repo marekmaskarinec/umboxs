@@ -48,7 +48,7 @@ umbox run</code></pre>
   </div>
 
   <div class="code">
-    <p>Download the installer <a href="/dl/umbox_installer.exe">here</a> and run it.</p>
+    <p>Download the installer <a href="/dl/umbox_install.exe">here</a> and run it.</p>
 <pre><code>mkdir my_box
 cd my_box
 umbox init umka
