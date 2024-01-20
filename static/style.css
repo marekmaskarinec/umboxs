@@ -33,7 +33,7 @@ a:hover {
 header menu {
         display: flex;
         flex-wrap: wrap;
-        font-size: 1.8rem;
+        font-size: 1.3rem;
         text-transform: uppercase;
 }
 
@@ -59,7 +59,7 @@ menu {
 }
 
 header img {
-        height: 2rem;
+        height: 1.4rem;
         vertical-align: text-top;
 }
 
@@ -69,7 +69,7 @@ header form {
 
 header input {
         vertical-align: text-top;
-        height: 1.8rem;
+        height: 1.3rem;
         border: solid black 0px;
         border-radius: 10px;
         margin: 0;
