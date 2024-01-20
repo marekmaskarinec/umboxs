@@ -2,7 +2,9 @@
 
 UmBox is a package manager for [Umka](https://github.com/vtereshkov/umka-lang).
 It can manage dependencies for Umka libraries and programs and help with
-automating builds.
+automating builds. The source code can be found
+[here](https://sr.ht/~mrms/umbox). You can get support on the Umka [Discord
+server](https://discord.gg/PcT7cn59h9).
 
 Logo credit: Jakub Víta
 
@@ -68,10 +70,6 @@ Now you can continue by reading the [documentation](/docs/user/guides/02-getting
 
 ## Features
 
-- dependency management
-- Web UI with automatic documentation generation
+- CLI tool
+- Web UI with documentation browser
 - custom build and run scripts
-
-## Not planned
-
-- version management
