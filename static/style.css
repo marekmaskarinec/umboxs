@@ -84,6 +84,12 @@ body {
         max-width: 1000px;
 }
 
+blockquote {
+        border-left: 4px solid var(--color-fg);
+        padding: 5px;
+        padding-left: 20px;
+}
+
 .box {
         border: solid black 0px;
         border-radius: 10px;

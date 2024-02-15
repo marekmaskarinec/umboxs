@@ -10,7 +10,6 @@ from .endpoints import register_endpoint
 from .endpoints import search_endpoint
 from .endpoints import package_endpoint
 
-
 @bottle.get('/static/<filepath:path>')
 def file(filepath):
     fname, ext = os.path.splitext(filepath)
@@ -92,8 +91,11 @@ if __name__ == "__main__":
     par.add_argument('--db-name', type=str,
                      default='postgres', help='Database name')
     par.add_argument('--no-db', action='store_true', default=False)
+    par.add_argument('--no-register', action='store_true', default=False)
 
     ns = par.parse_args()
+    
+    register_endpoint.enable = not ns.no_register
 
     if not ns.no_db:
         db.init(ns.db_name, ns.db_user, ns.db_password, ns.db_host)

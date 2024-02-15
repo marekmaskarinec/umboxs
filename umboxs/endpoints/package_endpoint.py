@@ -34,11 +34,6 @@ def upload(name, token, file):
 @bottle.get('/api/package/<name>/download/<file>')
 def download(name, file):
     try:
-        db.get_package(name)
-    except:
-        return bottle.HTTPError(404, "Package not found")
-
-    try:
         return bottle.static_file(file, root=f"packages/{name}")
     except FileNotFoundError:
         return bottle.HTTPError(404, "File not found")

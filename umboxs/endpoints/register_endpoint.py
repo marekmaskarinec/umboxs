@@ -6,9 +6,13 @@ import secrets
 
 from umboxs import db
 
+enable = True
 
 @bottle.get('/api/register/<package_name>')
 def register(package_name):
+    if not enable:
+        return bottle.HTTPError(501, "Registrations are disable, contact the server admin")
+
     exists = True
     try:
         db.get_package(package_name)

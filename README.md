@@ -1,6 +1,6 @@
 # UmBoxS
 
-A server for UmBox.
+A server for [UmBox](https://umbox.tophat2d.dev/).
 
 ## Setup
 
