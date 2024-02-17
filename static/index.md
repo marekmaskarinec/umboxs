@@ -1,9 +1,5 @@
 # Home
 
-> **NOTE:** We are experiencing a DB outage, accessing packages is not possible
-> right now. Downloading and updating packages should work, but other
-> functionality is limited.
-
 UmBox is a package manager for [Umka](https://github.com/vtereshkov/umka-lang).
 It can manage dependencies for Umka libraries and programs and help with
 automating builds. The source code can be found

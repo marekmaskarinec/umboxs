@@ -27,6 +27,9 @@ directory, run this command:
 umbox register
 ```
 
+> **NOTE:** Currently registrations aren't open. Please contact me via
+> [email](mailto:marek@mrms.cz) if you want to register a package.
+
 The command will print out a 64-character long token. Save this token somewhere
 safe (for example a password manager) and don't share it with anyone. If you've
 lost your token, are suspicious that someone might've stolen it or have some

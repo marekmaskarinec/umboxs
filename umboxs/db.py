@@ -1,21 +1,20 @@
 import collections
 import json
-import psycopg2
+import sqlite3
 
 Package = collections.namedtuple('Package', ['name', 'secret'])
 
 conn = None
 
 
-def init(dbname, user, password, host):
+def init(path):
     global conn
-    conn = psycopg2.connect(dbname=dbname, user=user,
-                            password=password, host=host)
+    conn = sqlite3.connect(path)
 
 
 def load_packages() -> dict:
     cur = conn.cursor()
-    cur.execute("SELECT * FROM pak_main_packages")
+    cur.execute("SELECT * FROM packages")
     result = cur.fetchall()
     cur.close()
     return {r[0]: r[1] for r in result}
@@ -23,7 +22,7 @@ def load_packages() -> dict:
 
 def get_package(name: str) -> Package:
     cur = conn.cursor()
-    cur.execute("SELECT * FROM pak_main_packages WHERE name = %s", (name,))
+    cur.execute("SELECT * FROM packages WHERE name = %s", (name,))
     result = cur.fetchone()
     cur.close()
     if result is None:
@@ -33,7 +32,7 @@ def get_package(name: str) -> Package:
 
 def set_package(package: Package):
     cur = conn.cursor()
-    cur.execute("INSERT INTO pak_main_packages (name, token) VALUES (%s, %s)",
+    cur.execute("INSERT INTO packages (name, token) VALUES (%s, %s)",
                 (package.name, package.secret))
     cur.close()
     conn.commit()

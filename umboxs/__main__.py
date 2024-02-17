@@ -82,23 +82,15 @@ if __name__ == "__main__":
     par.add_argument('--port', type=int, default=4832, help='Port to bind to')
     par.add_argument('--debug', action='store_true', help='Enable debug mode')
 
-    par.add_argument('--db-host', type=str,
-                     default='localhost', help='Database host')
-    par.add_argument('--db-user', type=str,
-                     default='postgres', help='Database user')
-    par.add_argument('--db-password', type=str,
-                     default='postgres', help='Database password')
-    par.add_argument('--db-name', type=str,
-                     default='postgres', help='Database name')
-    par.add_argument('--no-db', action='store_true', default=False)
+    par.add_argument('--db', type=str, default=None, help='Path to sqlite3 database')
     par.add_argument('--no-register', action='store_true', default=False)
 
     ns = par.parse_args()
     
     register_endpoint.enable = not ns.no_register
 
-    if not ns.no_db:
-        db.init(ns.db_name, ns.db_user, ns.db_password, ns.db_host)
+    if ns.db != None:
+        db.init(ns.db)
 
     bottle.TEMPLATES.clear()
     bottle.run(host=ns.host, port=ns.port, debug=ns.debug)

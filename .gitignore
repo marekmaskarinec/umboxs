@@ -4,3 +4,4 @@ token
 venv
 __pycache__
 run
+umbox.db
