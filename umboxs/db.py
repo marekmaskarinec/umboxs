@@ -22,7 +22,7 @@ def load_packages() -> dict:
 
 def get_package(name: str) -> Package:
     cur = conn.cursor()
-    cur.execute("SELECT * FROM packages WHERE name = %s", (name,))
+    cur.execute("SELECT * FROM packages WHERE name = ?", (name,))
     result = cur.fetchone()
     cur.close()
     if result is None:
@@ -32,7 +32,7 @@ def get_package(name: str) -> Package:
 
 def set_package(package: Package):
     cur = conn.cursor()
-    cur.execute("INSERT INTO packages (name, token) VALUES (%s, %s)",
+    cur.execute("INSERT INTO packages (name, token) VALUES (?, ?)",
                 (package.name, package.secret))
     cur.close()
     conn.commit()

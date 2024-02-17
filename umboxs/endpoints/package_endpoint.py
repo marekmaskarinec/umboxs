@@ -13,6 +13,12 @@ valid_filenames = [
 
 @bottle.post('/api/package/<name>/<token>/upload/<file>')
 def upload(name, token, file):
+    """
+    token = bottle.request.get_header("Authorization")
+    if token == None:
+        return bottle.HTTPError(401, "Unauthorized")
+    """
+
     if not file in valid_filenames:
         return bottle.HTTPError(400, "Invalid filename")
 
