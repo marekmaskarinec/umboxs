@@ -11,13 +11,15 @@ valid_filenames = [
 ]
 
 
-@bottle.post('/api/package/<name>/<token>/upload/<file>')
-def upload(name, token, file):
-    """
+@bottle.post('/api/package/<name>/upload/<file>')
+def upload(name, file):
     token = bottle.request.get_header("Authorization")
     if token == None:
         return bottle.HTTPError(401, "Unauthorized")
-    """
+    token = token.split(' ')
+    if len(token) != 2 and token[0] != 'UmBox':
+        return bottle.HTTPError(401, "Unauthorized")
+    token = token[1]
 
     if not file in valid_filenames:
         return bottle.HTTPError(400, "Invalid filename")
