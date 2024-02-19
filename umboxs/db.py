@@ -2,7 +2,7 @@ import collections
 import json
 import sqlite3
 
-Package = collections.namedtuple('Package', ['name', 'secret'])
+Package = collections.namedtuple('Package', ['name', 'secret', 'download_count'])
 
 conn = None
 
@@ -27,7 +27,15 @@ def get_package(name: str) -> Package:
     cur.close()
     if result is None:
         raise KeyError()
-    return Package(name=result[0], secret=result[1])
+    return Package(name=result[0], secret=result[1], download_count=result[2])
+
+
+def increment_downloads(name: str):
+    p = get_package(name)
+    cur = conn.cursor()
+    cur.execute("UPDATE packages SET download_count = ? WHERE name = ?", (p.download_count + 1, name))
+    cur.close()
+    conn.commit()
 
 
 def set_package(package: Package):

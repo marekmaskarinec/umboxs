@@ -42,7 +42,9 @@ def upload(name, file):
 
 @bottle.get('/api/package/<name>/download/<file>')
 def download(name, file):
-    bottle.json_dumps
+    if file == "box.tar":
+        db.increment_downloads(name)
+
     try:
         return bottle.static_file(file, root=f"packages/{name}")
     except FileNotFoundError:
