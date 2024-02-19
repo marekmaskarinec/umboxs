@@ -5,13 +5,14 @@ import time
 import secrets
 
 from umboxs import db
+from umboxs import common
 
 enable = True
 
 @bottle.get('/api/register/<package_name>')
 def register(package_name):
     if not enable:
-        return bottle.HTTPError(501, "Registrations are disable, contact the server admin")
+        return common.api_error(501, "Registrations are disabled, contact the server admin")
 
     exists = True
     try:
@@ -20,7 +21,7 @@ def register(package_name):
         exists = False
 
     if exists:
-        return bottle.HTTPError(409, "Packages already registered")
+        return common.api_error(409, "Package already registered")
 
     token = secrets.token_hex(32)
     secret = hashlib.blake2b(token.encode()).hexdigest()
@@ -29,4 +30,4 @@ def register(package_name):
 
     os.mkdir(f"packages/{package_name}")
 
-    return token
+    return common.api_ok(token)
