@@ -33,6 +33,7 @@
 		<p><a href="{{meta.get('link')}}">Homepage</a></p>
 		<p><a href="/package/{{name}}/browse">Documentation</a></p>
 		<p>License: <a href="/package/{{name}}/browse/LICENSE">{{meta.get('license')}}</a></p>
+		<p>Download count: {{db_package.download_count}}
 		
 		<hr>
 		

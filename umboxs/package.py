@@ -74,7 +74,7 @@ def post_upload(name, file):
 
 @bottle.get('/package/<name>')
 def package(name):
-    return bottle.template('package', name=name, meta=db.get_meta(name))
+    return bottle.template('package', name=name, db_package=db.get_package(name), meta=db.get_meta(name))
 
 
 @bottle.get('/package/<name>/browse/<path:path>')
