@@ -60,7 +60,7 @@ A list of files or directories that shall be packaged with the build.
 
 ### `run`
 
-A command used when `umbox run` is executed.
+A command used before `umbox run` arguments are executed.
 
 ### `run_posix`
 
