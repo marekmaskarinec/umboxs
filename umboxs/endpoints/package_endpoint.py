@@ -11,7 +11,6 @@ valid_filenames = [
     "init.tar"
 ]
 
-
 @bottle.post('/api/package/<name>/upload/<file>')
 def upload(name, file):
     token = bottle.request.get_header("Authorization")
