@@ -12,6 +12,15 @@ This version is built automatically upon every push to the `master` branch.
 - [Windows Installer](https://umbox.tophat2d.dev/dl/umbox_install.exe)
 - [setup.sh script](https://umbox.tophat2d.dev/dl/setup.sh)
 
+## v1.1
+
+* Add `-c` update option
+* Better error handling
+* Add ability to specify dependency source
+
+- [Portable ZIP](https://umbox.tophat2d.dev/dl/umbox_portable_v11.zip)
+- [Windows Installer](https://umbox.tophat2d.dev/dl/umbox_install_v11.exe)
+
 ## v1.0
 
 Initial release.
