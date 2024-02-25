@@ -1,4 +1,5 @@
-packages
+packages/
+packages_src/
 packages.json
 token
 venv
