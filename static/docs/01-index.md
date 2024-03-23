@@ -8,5 +8,6 @@ Welcome to the UmBox documentation. The documentation is structured into three s
 
 You can quickly navigate through the documents using the file tree on the right side of the page.
 
-The documentation is stored in the UmBox server [repository](https://git.sr.ht/~mrms/umboxs) and can be contributed
-to using the [mailing list](https://lists.sr.ht/~mrms/public-inbox).
+The documentation is stored in the UmBox server
+[repository](https://github.com/marekmaskarinec/umboxs) and can be contributed
+to through pull requests.

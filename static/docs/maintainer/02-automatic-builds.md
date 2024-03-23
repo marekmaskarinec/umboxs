@@ -5,8 +5,33 @@ after every commit.
 
 ## GitHub
 
-Currently, no box uses GitHub's CI, but the approach should be similar
-to SourceHut.
+Automatic builds on GitHub can be done using UmBox's composite action. Example:
+
+```
+name: UmBox upload
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo apt install -y mingw-w64
+      - uses: marekmaskarinec/umbox@master
+        with:
+          secret: ${{ secrets.UMBOX }}
+```
+
+For this to work, you will need to add your UmBox token as a repository secret.
+It is important that your workflow runs on `ubuntu-20.04`. If it runs on a
+different system, it may be possible that your box will not be compatible with
+others.
 
 ## SourceHut
 
