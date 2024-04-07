@@ -76,7 +76,7 @@ path/to/umbox run</code></pre>
 Now you can continue by reading the [documentation](/docs/user/guides/02-getting-started.md).
 
 \* More information about the install procedure is available
-[here](http://sus:4832/docs/user/01-installation.md).
+[here](/docs/user/01-installation.md).
 
 ## Features
 
