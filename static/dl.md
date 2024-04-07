@@ -10,20 +10,10 @@ This version is built automatically upon every push to the `master` branch.
 
 - [Portable ZIP](https://umbox.tophat2d.dev/dl/umbox_portable.zip)
 - [Windows Installer](https://umbox.tophat2d.dev/dl/umbox_install.exe)
+- [Linux ZIP](https://umbox.tophat2d.dev/dl/umbox_linux.zip)
+- [Windows ZIP](https://umbox.tophat2d.dev/dl/umbox_windows.zip)
 - [setup.sh script](https://umbox.tophat2d.dev/dl/setup.sh)
 
-## v1.1
+## Stable Releases
 
-* Add `-c` update option
-* Better error handling
-* Add ability to specify dependency source
-
-- [Portable ZIP](https://umbox.tophat2d.dev/dl/umbox_portable_v11.zip)
-- [Windows Installer](https://umbox.tophat2d.dev/dl/umbox_install_v11.exe)
-
-## v1.0
-
-Initial release.
-
-- [Portable ZIP](https://umbox.tophat2d.dev/dl/umbox_portable_v10.zip)
-- [Windows Installer](https://umbox.tophat2d.dev/dl/umbox_install_v10.exe)
+Stable releases can be downloaded from [GitHub](https://github.com/marekmaskarinec/umbox/releases/).
