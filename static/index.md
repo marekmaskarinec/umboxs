@@ -1,9 +1,16 @@
 # Home
 
 UmBox is a package manager for [Umka](https://github.com/vtereshkov/umka-lang).
-It can manage dependencies for Umka libraries and programs and help with
-automating builds. The source code can be found
-[here](https://sr.ht/~mrms/umbox). You can get support on the Umka [Discord
+It can manage dependencies for Umka libraries and programs. It features a web
+UI with an automatic API reference generator (using
+[MMDOC](https://git.sr.ht/~mrms/mmdoc) syntax) and other useful features. The
+official UmBox repository is hosted here at tophat2d.dev, but it is possible to
+host your own repository if needed.
+
+Both the [server](https://github.com/marekmaskarinec/umboxs) and
+[CLI](https://github.com/marekmaskarinec/umbox) parts of UmBox are open
+sourced. You can browse documentation [here](/docs). For technical support or
+discussions about UmBox, join the official Umka [Discord
 server](https://discord.gg/PcT7cn59h9).
 
 Logo credit: Jakub Víta
@@ -67,6 +74,9 @@ path/to/umbox run</code></pre>
 </div>
 
 Now you can continue by reading the [documentation](/docs/user/guides/02-getting-started.md).
+
+\* More information about the install procedure is available
+[here](http://sus:4832/docs/user/01-installation.md).
 
 ## Features
 
