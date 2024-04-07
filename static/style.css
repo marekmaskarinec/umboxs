@@ -1,223 +1,221 @@
 :root {
-        font-family: sans-serif;
+	font-family: sans-serif;
 
-        --color-bg: #ffeed0;
-        --color-fg: #604d3d;
-        --color-primary: #e27b08;
+	--color-fg: #ffeed0;
+	--color-bg: #292521;
+				--color-dark: #191511;
+	--color-primary: #ff6708;
 }
 
 html {
-        background-color: var(--color-bg);
-        color: var(--color-fg);
+	background-color: var(--color-bg);
+	color: var(--color-fg);
 }
 
 a {
-        color: var(--color-primary);
-        text-decoration: none;
+	color: var(--color-primary);
+	text-decoration: none;
 }
 
 a:hover {
-        text-decoration: underline;
+	text-decoration: underline;
+}
+
+h1,h2,h3,h4,h5,h6,hr {
+	color: var(--color-primary);
 }
 
 .no-aa {
-        image-rendering: optimizespeed;
-        image-rendering: -moz-crisp-edges;
-        image-rendering: -o-crisp-edges;
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: pixelated;
-        image-rendering: optimize-contrast;
-        -ms-interpolation-mode: nearest-neighbor;
+	image-rendering: optimizespeed;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -o-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: pixelated;
+	image-rendering: optimize-contrast;
+	-ms-interpolation-mode: nearest-neighbor;
 }
 
 header menu {
-        display: flex;
-        flex-wrap: wrap;
-        font-size: 1.3rem;
-        text-transform: uppercase;
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 1.3rem;
+	text-transform: uppercase;
 }
 
 header li {
-        list-style: none;
-        padding: 0;
-        padding-left: 20px;
-        padding-right: 20px;
-        font-weight: bold;
+	list-style: none;
+	padding: 0;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-weight: bold;
 }
 
 header li a {
-        color: var(--color-fg);
+	color: var(--color-fg);
 }
 
 header li:nth-child(1) {
-        flex-grow: 2;
+	flex-grow: 2;
 }
 
 menu {
-        margin-top: 20px;
-        margin-bottom: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 header img {
-        height: 1.4rem;
-        vertical-align: text-top;
+	height: 1.4rem;
+	vertical-align: text-top;
 }
 
 header form {
-        margin: 0;
+	margin: 0;
 }
 
 header input {
-        vertical-align: text-top;
-        height: 1.3rem;
-        border: solid black 0px;
-        border-radius: 10px;
-        margin: 0;
-        padding-left: 5px;
+	vertical-align: text-top;
+	height: 1.5rem;
+	border: solid black 0px;
+	margin: 0;
+	padding-left: 5px;
 
-        background-color: var(--color-bg);
-        color: var(--color-fg);
+	background-color: var(--color-dark);
+	color: var(--color-fg);
 }
 
 body {
-        margin: auto;
-        max-width: 1000px;
+	margin: auto;
+	max-width: 1000px;
 }
 
 blockquote {
-        border-left: 4px solid var(--color-fg);
-        padding: 5px;
-        padding-left: 20px;
+	border-left: 4px solid var(--color-fg);
+	padding: 5px;
+	padding-left: 20px;
 }
 
 .box {
-        border: solid black 0px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25),
-                0 6px 20px 0 rgba(0, 0, 0, 0.23);
-}
-
-.box:hover {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15),
-                0 6px 20px 0 rgba(0, 0, 0, 0.14);
+	background-color: var(--color-dark);
 }
 
 .package_card_full {
-        margin-bottom: 20px;
+	margin-bottom: 20px;
 
-        padding: 5px;
-        padding-left: 40px;
-        padding-right: 40px;
+	padding: 5px;
+	padding-left: 40px;
+	padding-right: 40px;
 
-        display: flex;
+	display: flex;
 }
 
 .package_card_full div:nth-child(1) {
-        flex-grow: 2;
+	flex-grow: 2;
 }
 
 .package_card_full ul {
-        list-style: none;
+	list-style: none;
 }
 
 .package {
-        display: grid;
-        grid-template-areas: "h h" "r i";
-        grid-template-columns: 70% 1fr;
-        grid-gap: 20px;
+	display: grid;
+	grid-template-areas: "h h" "r i";
+	grid-template-columns: 70% 1fr;
+	grid-gap: 20px;
 }
 
 .package__heading {
-        grid-area: h;
-        padding-left: 20px;
+	grid-area: h;
+	padding-left: 20px;
 }
 
 .package__readme {
-        grid-area: r;
+	grid-area: r;
 }
 
 .package__readme p:nth-child(1) {
-        font-size: 0.8rem;
-        margin: 0;
+	font-size: 0.8rem;
+	margin: 0;
 }
 
 .package__info {
-        grid-area: i;
+	grid-area: i;
 }
 
 .package__info p {
-        margin: 2px;
+	margin: 2px;
 }
 
 .docs {
-        display: grid;
-        grid-template-areas: "t c";
-        grid-template-columns: 300px 1fr;
-        grid-gap: 20px;
+	display: grid;
+	grid-template-areas: "t c";
+	grid-template-columns: 300px 1fr;
+	grid-gap: 20px;
 }
 
 .docs__tree {
-        grid-area: t;
-        overflow-x: scroll;
-        white-space: nowrap;
+	grid-area: t;
+	overflow-x: scroll;
+	white-space: nowrap;
 }
 
 .docs__tree ul {
-        list-style: none;
-        padding-left: 20px;
+	list-style: none;
+	padding-left: 20px;
 }
 
 .docs__tree ul span {
-        display: inline-block;
-        font-weight: bold;
-        background-color: var(--color-fg);
-        color: var(--color-bg);
-        min-width: calc(100% - 10px);
-        padding: 2px;
-        padding-left: 5px;
-        margin-top: 4px;
+	display: inline-block;
+	font-weight: bold;
+	background-color: var(--color-dark);
+	color: var(--color-primary);
+	min-width: calc(100% - 10px);
+	padding: 2px;
+	padding-left: 5px;
+	margin-top: 4px;
+}
+
+.docs__tree a {
+	color: var(--color-fg);
 }
 
 .docs__content {
-        grid-area: c;
+	grid-area: c;
 }
 
 table {
-        background-color: #e27b0844;
-        padding: 8px;
+	background-color: #e27b0844;
+	padding: 8px;
 
-        margin-top: 20px;
-        margin-bottom: 20px;
-        width: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
 }
 
 th {
-        text-align: left;
+	text-align: left;
 }
 
 pre {
-        max-width: 100%;
-        padding: 10px;
-        border: solid black 0px;
-        border-radius: 10px;
-        background-color: var(--color-fg);
-        color: var(--color-bg);
-        overflow: scroll;
+	max-width: 100%;
+	padding: 10px;
+	background-color: var(--color-dark);
+	color: var(--color-fg);
+	overflow: scroll;
 }
 
 @media screen and (max-width: 800px) {
-        .package {
-                grid-template-areas: "h" "i" "r";
-                grid-template-columns: 1fr;
-        }
-        
-        .docs {
-                grid-template-areas: "t" "c";
-                grid-template-columns: 1fr;
-        }
+	.package {
+		grid-template-areas: "h" "i" "r";
+		grid-template-columns: 1fr;
+	}
+	
+	.docs {
+		grid-template-areas: "t" "c";
+		grid-template-columns: 1fr;
+	}
 
-        body {
-                padding-left: 20px;
-                padding-right: 20px;
-        }
+	body {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 }
