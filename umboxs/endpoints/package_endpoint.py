@@ -1,6 +1,8 @@
 
 import bottle
 import os
+import brotli
+import mimetypes
 
 from umboxs import package
 from umboxs import db
@@ -44,7 +46,28 @@ def download(name, file):
     if file == "box.tar":
         db.increment_downloads(name)
 
-    try:
-        return bottle.static_file(file, root=f"packages/{name}")
-    except FileNotFoundError:
-        return common.api_error(404, "File not found")
+    root = os.path.abspath(f"packages/{name}") + os.sep
+    file = os.path.abspath(os.path.join(root, file.strip('/\\')))
+    if not file.startswith(root):
+        return common.api_error(403, "Access denied.")
+    if not os.path.exists(file) or not os.path.isfile(file):
+        return common.api_error(404, "File does not exist.")
+    if not os.access(file, os.R_OK):
+        return common.api_error(403, "You do not have permission to access this file.")
+
+    with open(file, "rb") as f:
+        data = f.read()
+    
+    headers = {}
+    mimetype, encoding = mimetypes.guess_type(file)
+    if mimetype:
+        headers["Content-Type"] = mimetype
+    if encoding:
+        headers["Content-Encoding"] = encoding
+
+    if "br" in bottle.request.get_header("Accept-Encoding", ""):
+        data = brotli.compress(data)
+        headers["Content-Encoding"] = 'br'
+        headers["Vary"] = 'Accept-Encoding'
+
+    return bottle.HTTPResponse(data, status=200, headers=headers)
