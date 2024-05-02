@@ -3,8 +3,8 @@ import bottle
 import os
 import argparse
 
-from . import db
 from . import common
+from . import package
 
 from .endpoints import register_endpoint
 from .endpoints import search_endpoint
@@ -55,9 +55,9 @@ def root():
 
 @bottle.get('/all')
 def all():
-    packs = db.load_packages().keys()
+    packs = package.load_all()
 
-    return bottle.template('packages', title="All packages", packages=[(pack, db.get_meta(pack)) for pack in packs])
+    return bottle.template('packages', title="All packages", packages=[(pack, package.Package(pack).get_meta()) for pack in packs])
 
 
 @bottle.post('/search')
@@ -90,7 +90,7 @@ if __name__ == "__main__":
     register_endpoint.enable = not ns.no_register
 
     if ns.db != None:
-        db.init(ns.db)
+        package.init_db(ns.db)
 
     bottle.TEMPLATES.clear()
     bottle.run(host=ns.host, port=ns.port, debug=ns.debug)

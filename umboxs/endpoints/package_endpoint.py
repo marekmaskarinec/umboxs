@@ -5,7 +5,6 @@ import brotli
 import mimetypes
 
 from umboxs import package
-from umboxs import db
 from umboxs import common
 
 valid_filenames = [
@@ -26,27 +25,26 @@ def upload(name, file):
     if not file in valid_filenames:
         return common.api_error(400, "This filename is not allowed")
 
-    try:
-        db.get_package(name)
-    except:
+    pack = package.Package(name)
+    if not pack.exists():
         return common.api_error(400, "Package not found")
 
-    if not package.authorize(name, token):
+    if not pack.authorize(token):
         return common.api_error(401, "Unauthorized")
 
-    package.write_file(name, file, bottle.request.body.read())
-
-    package.post_upload(name, file)
+    pack.write_file(file, bottle.request.body.read())
+    pack.post_upload(file)
 
     return common.api_ok(None)
 
 
 @bottle.get('/api/package/<name>/download/<file>')
 def download(name, file):
+    pack = package.Package(name)
     if file == "box.tar":
-        db.increment_downloads(name)
+        pack.inc_downloads()
 
-    root = os.path.abspath(f"packages/{name}") + os.sep
+    root = os.path.abspath(pack.fpath(""))
     file = os.path.abspath(os.path.join(root, file.strip('/\\')))
     if not file.startswith(root):
         return common.api_error(403, "Access denied.")

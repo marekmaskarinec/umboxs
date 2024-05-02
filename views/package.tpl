@@ -1,8 +1,8 @@
-% include('header.tpl', title=name)
+% include('header.tpl', title=pack.name)
 
 <div class="package">
 	<div class="package__heading box">
-		<h2>{{name}} {{meta.get('version')}}</h2>
+		<h2>{{pack.name}} {{meta.get('version')}}</h2>
 		<p>{{meta.get('description')}}</p>
 	</div>
 
@@ -13,7 +13,7 @@
 		
 		content = "No readme"
 		try:
-			readme_path = os.path.join("packages", name, "data", meta.get('readme'))
+			readme_path = os.path.join("packages", pack.name, "data", meta.get('readme'))
 			with open(readme_path) as f:
 				content = f.read()
 			end
@@ -31,16 +31,16 @@
 	
 	<div class="package__info">
 		<p><a href="{{meta.get('link')}}">Homepage</a></p>
-		<p><a href="/package/{{name}}/browse">Documentation</a></p>
-		<p>License: <a href="/package/{{name}}/browse/LICENSE">{{meta.get('license')}}</a></p>
-		<p>Download count: {{db_package.download_count}}
+		<p><a href="/package/{{pack.name}}/browse">Documentation</a></p>
+		<p>License: <a href="/package/{{pack.name}}/browse/LICENSE">{{meta.get('license')}}</a></p>
+		<p>Download count: {{pack.download_count}}
 		
 		<hr>
 		
 		<p>To add this package to your project run:</p>
-		<code><pre>umbox install {{name}}</pre></code>
+		<code><pre>umbox install {{pack.name}}</pre></code>
 		
-		<p>Or download as a <a href="/api/package/{{name}}/download/box.tar">tar</a>.</p>
+		<p>Or download as a <a href="/api/package/{{pack.name}}/download/box.tar">tar</a>.</p>
 		
 		<hr>
 		

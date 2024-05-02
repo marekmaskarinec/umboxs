@@ -5,76 +5,148 @@ import tarfile
 import zipfile
 import json
 import bottle
+import sqlite3
 
-from . import db
+conn = None
 
+class Package:
+    def __init__(self, name):
+        self.name = name
+        self.has_db = False
 
-def authorize(name, token):
-    try:
-        module = db.get_package(name)
-    except KeyError:
-        return False
+    def load_db(self):
+        if self.has_db:
+            return
 
-    return module.secret == token
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM packages WHERE name = ?", (self.name,))
+        result = cur.fetchone()
+        cur.close()
 
+        if result is None:
+            raise KeyError()
 
-def write_file(name, file, data):
-    with open(f"packages/{name}/{file}", "wb") as f:
-        f.write(data)
+        self.secret = result[1]
+        self.download_count = result[2]
 
+        self.has_db = True
 
-def post_upload(name, file):
-    match os.path.basename(file):
-        case "box.tar":
-            if not os.path.isdir(f"packages/{name}/data"):
-                os.mkdir(f"packages/{name}/data")
+    def save_db(self):
+        cur = conn.cursor()
+        cur.execute("INSERT INTO packages (name, token) VALUES (?, ?)",
+                    (self.name, self.secret))
+        cur.close()
+        conn.commit()
 
-            with tarfile.TarFile(f"packages/{name}/{file}", "r") as tf:
-                tf.extractall(f"packages/{name}/data/")
+    def fpath(self, file):
+        return f"packages/{self.name}/{file}"
 
-            box = {}
-            with open(f"packages/{name}/data/box.json", "r") as f:
-                box = json.loads(f.read())
+    def get_meta(self):
+        try:
+            with open(self.fpath("box.json"), "r") as f:
+                return json.loads(f.read())
+        except:
+            return {
+                "name": self.name,
+                "description": "No description (NOTE: seems like the box.json file is missing)",
+                "version": "0.0.0",
+                "author": "Unknown",
+                "license": "Unknown",
+                "dependencies": []
+            }
 
-            if 'name' not in box:
-                box['name'] = name
-            if box['name'] != name:
-                box['name'] = name
-            if 'version' not in box:
-                box['version'] = "v0.1.0"
-            if 'description' not in box:
-                box['description'] = ""
-            if 'author' not in box:
-                box['author'] = ""
-            if 'license' not in box:
-                box['license'] = ""
-            if 'dependencies' not in box:
-                box['dependencies'] = []
-            if 'link' not in box:
-                box['link'] = ""
+    def post_upload(self, file):
+        match os.path.basename(file):
+            case "box.tar":
+                if not os.path.isdir(self.fpath("data")):
+                    os.mkdir(self.fpath("data"))
 
-            with open(f"packages/{name}/box.json", "w") as f:
-                f.write(json.dumps(box, indent=4))
+                with tarfile.TarFile(self.fpath(file), "r") as tf:
+                    tf.extractall(self.fpath("data/"))
 
-            version = ""
-            try:
-                with open(f"packages/{name}/version", "r") as f:
-                    version = f.read()
-            except:
-                pass
+                box = {}
+                with open(self.fpath("box.json"), "r") as f:
+                    box = json.loads(f.read())
 
-            if version.startswith(box["version"]):
-                version = f"{box['version']}-{int(version.split('-')[1]) + 1}"
-            else:
-                version = f"{box['version']}-0"
+                if 'name' not in box:
+                    box['name'] = name
+                if box['name'] != name:
+                    box['name'] = name
+                if 'version' not in box:
+                    box['version'] = "v0.1.0"
+                if 'description' not in box:
+                    box['description'] = ""
+                if 'author' not in box:
+                    box['author'] = ""
+                if 'license' not in box:
+                    box['license'] = ""
+                if 'dependencies' not in box:
+                    box['dependencies'] = []
+                if 'link' not in box:
+                    box['link'] = ""
 
-            with open(f"packages/{name}/version", "w") as f:
-                f.write(version)
+                with open(self.fpath("box.json"), "w") as f:
+                    f.write(json.dumps(box, indent=4))
 
+                version = ""
+                try:
+                    with open(self.fpath("version"), "r") as f:
+                        version = f.read()
+                except:
+                    pass
+
+                if version.startswith(box["version"]):
+                    version = f"{box['version']}-{int(version.split('-')[1]) + 1}"
+                else:
+                    version = f"{box['version']}-0"
+
+                with open(self.fpath("version"), "w") as f:
+                    f.write(version)
+
+    def write_file(self, file, data):
+        with open(self.fpath(file), "wb") as f:
+            f.write(data)
+
+    def inc_downloads(self):
+        if not self.has_db:
+            self.load_db()
+        self.download_count += 1
+        cur = conn.cursor()
+        cur.execute("UPDATE packages SET download_count = ? WHERE name = ?", (self.download_count + 1, self.name))
+        cur.close()
+        conn.commit()
+
+    def exists(self):
+        if self.has_db:
+            return True
+        try:
+            self.load_db()
+        except:
+            return False
+
+        return True
+
+    def authorize(self, secret):
+        if not self.has_db:
+            self.load_db()
+        return secret == self.secret
+
+def init_db(path):
+    global conn
+    conn = sqlite3.connect(path)
+
+def load_all() -> list[str]:
+    cur = conn.cursor()
+    cur.execute("SELECT name from packages")
+    res = cur.fetchall()
+    cur.close()
+    return [r[0] for r in res]
 
 @bottle.get('/package/<name>')
 def package(name):
-    return bottle.template('package', name=name, db_package=db.get_package(name), meta=db.get_meta(name))
+    pack = Package(name)
+    pack.load_db()
+    return bottle.template('package', pack=pack, meta=pack.get_meta())
 
 
 @bottle.get('/package/<name>/browse/<path:path>')

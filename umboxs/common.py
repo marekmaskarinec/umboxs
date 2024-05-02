@@ -1,12 +1,13 @@
 import bottle
 import json
-from . import db
+
+from . import package
 
 
 def search(query: str) -> list:
-    packs = db.load_packages().keys()
+    packs = package.load_all()
 
-    return [(pack, db.get_meta(pack)) for pack in packs if query in pack]
+    return [(pack, package.Package(pack).get_meta()) for pack in packs if query in pack]
 
 def api_ok(data: object) -> bottle.HTTPResponse:
     return bottle.HTTPResponse(json.dumps({
