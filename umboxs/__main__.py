@@ -50,7 +50,7 @@ def docs_empty():
 @bottle.get('/')
 @bottle.get('')
 def root():
-    return file('index.md')
+    return bottle.template('index')
 
 
 @bottle.get('/all')

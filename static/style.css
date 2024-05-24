@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400;500;600;700&display=swap');
+
 :root {
-	font-family: sans-serif;
+	font-family: "Hind Vadodara", sans-serif;
 
 	--color-fg: #ffeed0;
 	--color-bg: #292521;
-				--color-dark: #191511;
+	--color-dark: #191511;
 	--color-primary: #ff6708;
+	--color-dark-primary: #ff670888;
 }
 
 html {
@@ -35,55 +38,52 @@ h1,h2,h3,h4,h5,h6,hr {
 	-ms-interpolation-mode: nearest-neighbor;
 }
 
-header menu {
+.nav {
+	padding: 20px;
+	margin: 0;
+	background-color: var(--color-dark);
+	color: var(--color-dark);
+	position: sticky;
+	top: 0;
 	display: flex;
 	flex-wrap: wrap;
-	font-size: 1.3rem;
+	font-size: 0.8rem;
 	text-transform: uppercase;
+	justify-content: space-between;
+	align-items: center;
 }
 
-header li {
-	list-style: none;
-	padding: 0;
-	padding-left: 20px;
-	padding-right: 20px;
-	font-weight: bold;
-}
-
-header li a {
+.nav a {
 	color: var(--color-fg);
 }
 
-header li:nth-child(1) {
-	flex-grow: 2;
-}
-
-menu {
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-header img {
-	height: 1.4rem;
-	vertical-align: text-top;
-}
-
-header form {
+.nav > form {
+	flex-grow: 0.8;
 	margin: 0;
 }
 
-header input {
+.nav > form > input {
+	width: 100%;
 	vertical-align: text-top;
 	height: 1.5rem;
 	border: solid black 0px;
 	margin: 0;
 	padding-left: 5px;
 
-	background-color: var(--color-dark);
+	background-color: var(--color-bg);
 	color: var(--color-fg);
 }
 
-body {
+header img {
+	height: 2rem;
+	vertical-align: text-top;
+}
+
+body, html {
+	margin: 0;
+}
+
+article {
 	margin: auto;
 	max-width: 1000px;
 }
@@ -182,6 +182,65 @@ blockquote {
 	grid-area: c;
 }
 
+.index {
+	text-align: center;
+	margin: auto;
+	margin-top: 10vh;
+	height: 100vh;
+
+	img {
+		height: 25vh;
+	}
+
+	h1 {
+		margin: 0;
+		font-size: 6rem;
+		color: var(--color-fg);
+	}
+
+	p {
+		font-size: 2rem;
+		margin: 0;
+	}
+
+	ul {
+		padding: 0;
+		list-style: none;
+		display: flex;
+		justify-content: center;
+
+		li {
+			margin-left: 20px;
+			margin-right: 20px;
+		}
+	}
+
+	form {
+		input {
+			width: 100%;
+			height: 3rem;
+			border: solid black 0px;
+			padding-left: 20px;
+			font-size: 2rem;
+			background-color: var(--color-dark);
+			color: var(--color-fg);
+		}
+	}
+
+	.arrow {
+		position: absolute;
+		color: var(--color-fg);
+		font-size: 8rem;
+		bottom: 5vh;
+		width: 100%;
+		margin-left: -50%;
+	}
+
+	.arrow:hover {
+		text-decoration: none;
+	}
+}
+
 table {
 	background-color: #e27b0844;
 	padding: 8px;
@@ -214,7 +273,7 @@ pre {
 		grid-template-columns: 1fr;
 	}
 
-	body {
+	article {
 		padding-left: 20px;
 		padding-right: 20px;
 	}
