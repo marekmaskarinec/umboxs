@@ -184,9 +184,11 @@ blockquote {
 
 .index {
 	text-align: center;
+	position: relative;
 	margin: auto;
-	margin-top: 10vh;
-	height: 100vh;
+	padding-top: 10vh;
+	padding-bottom: 6rem;
+	min-height: calc(90vh - 6rem);
 
 	img {
 		height: 25vh;
@@ -241,6 +243,10 @@ blockquote {
 	.arrow:hover {
 		text-decoration: none;
 	}
+}
+
+.index-content {
+	min-height: 100vh;
 }
 
 table {
