@@ -21,7 +21,7 @@
 		<input class="box" name="query" type="text" placeholder="Search" />
 	</form>
 
-	<a href="#about" class="arrow">▾</a>
+  <a href="#about" class="arrow">▾</a>
 </div>
 
 <h2 id="about">About</h2>
