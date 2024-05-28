@@ -135,9 +135,9 @@ def init_db(path):
     global conn
     conn = sqlite3.connect(path)
 
-def load_all() -> list[str]:
+def load_all(order = 'name', asc = True) -> list[str]:
     cur = conn.cursor()
-    cur.execute("SELECT name from packages")
+    cur.execute(f"SELECT name from PACKAGES ORDER BY ? {"ASC" if asc else "DESC"}", (order,))
     res = cur.fetchall()
     cur.close()
     return [r[0] for r in res]

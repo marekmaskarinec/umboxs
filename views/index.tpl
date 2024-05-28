@@ -99,7 +99,7 @@
   </div>
 
   <p>
-  Now you can continue by reading the <a href="/docs/user/guides/02-getting-started.md">documentation</a>.
+  Now you can continue by reading the <a href="/docs/user/02-getting-started.md">documentation</a>.
   </p>
 
   <p>

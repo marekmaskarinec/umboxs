@@ -55,7 +55,10 @@ def root():
 
 @bottle.get('/all')
 def all():
-    packs = package.load_all()
+    order = ["name", "asc"]
+    if 'order' in bottle.request.query:
+        order = bottle.request.query.get('order').split("__")
+    packs = package.load_all(order[0], order[1] == "asc")
 
     return bottle.template('packages', title="All packages", packages=[(pack, package.Package(pack).get_meta()) for pack in packs])
 
