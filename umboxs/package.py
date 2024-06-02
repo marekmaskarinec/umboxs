@@ -69,9 +69,9 @@ class Package:
                     box = json.loads(f.read())
 
                 if 'name' not in box:
-                    box['name'] = name
-                if box['name'] != name:
-                    box['name'] = name
+                    box['name'] = self.name
+                if box['name'] != self.name:
+                    box['name'] = self.name
                 if 'version' not in box:
                     box['version'] = "v0.1.0"
                 if 'description' not in box:
