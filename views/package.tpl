@@ -30,7 +30,12 @@
 	</div>
 	
 	<div class="package__info">
-		<p><a href="{{meta.get('link')}}">Homepage</a></p>
+% if 'homepage' in meta:
+		<p><a href="{{meta.get('homepage')}}">Homepage</a></p>
+% end
+% if 'source' in meta:
+		<p><a href="{{meta.get('source')}}">Source code</a></p>
+% end
 		<p><a href="/package/{{pack.name}}/browse">Documentation</a></p>
 		<p>License: <a href="/package/{{pack.name}}/browse/LICENSE">{{meta.get('license')}}</a></p>
 		<p>Download count: {{pack.download_count}}

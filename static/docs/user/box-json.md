@@ -46,9 +46,13 @@ Short description of the box.
 
 Path to the box's readme file.
 
-### `link`
+### `homepage`
 
-Link to the box's homepage or repository.
+A link to the homepage of the project.
+
+### `source`
+
+A link to the sourcecode of the project. It should point directly to a downloadable file or a clonable repository.
 
 ### `dependencies`
 

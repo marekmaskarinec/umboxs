@@ -65,9 +65,9 @@ class Package:
                     tf.extractall(self.fpath("data/"))
 
                 box = {}
-                with open(self.fpath("box.json"), "r") as f:
+                with open(self.fpath("data/box.json"), "r") as f:
                     box = json.loads(f.read())
-
+                    
                 if 'name' not in box:
                     box['name'] = self.name
                 if box['name'] != self.name:
@@ -82,8 +82,6 @@ class Package:
                     box['license'] = ""
                 if 'dependencies' not in box:
                     box['dependencies'] = []
-                if 'link' not in box:
-                    box['link'] = ""
 
                 with open(self.fpath("box.json"), "w") as f:
                     f.write(json.dumps(box, indent=4))

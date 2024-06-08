@@ -7,7 +7,9 @@
         
         <div>
                 <ul>
-                        <li><a href="{{p.get('link')}}">Homepage</a></li>
+% if 'homepage' in p:
+                        <li><a href="{{p.get('homepage')}}">Homepage</a></li>
+% end
                         <li>License: {{p.get('license')}}</li>
                         <li>Author: {{p.get('author')}}</li>
         </div>
