@@ -10,6 +10,11 @@ Show help and exit.
 
 Specify URL of the umbox server. Defaults to `https://umbox.tophat2d.dev`
 
+### `-d`
+
+Run in a debug mode. If activated, full stack traces and other extra info will
+be shown.
+
 ## Modes
 
 ### `build`
