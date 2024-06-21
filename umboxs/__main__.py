@@ -87,6 +87,8 @@ if __name__ == "__main__":
 
     par.add_argument('--db', type=str, default=None, help='Path to sqlite3 database')
     par.add_argument('--no-register', action='store_true', default=False)
+    
+    par.add_argument('--register', type=str, default=None, help='If provided, registers a new box')
 
     ns = par.parse_args()
     
@@ -94,6 +96,11 @@ if __name__ == "__main__":
 
     if ns.db != None:
         package.init_db(ns.db)
+        
+    if ns.register != None:
+        pack = package.Package(ns.register)
+        print(f"{ns.register}:{pack.register()}")
+        exit(0)
 
     bottle.TEMPLATES.clear()
     bottle.run(host=ns.host, port=ns.port, debug=ns.debug)

@@ -18,12 +18,4 @@ def register(package_name):
     if pack.exists():
         return common.api_error(409, "Package already registered")
 
-    token = secrets.token_hex(32)
-    secret = hashlib.blake2b(token.encode()).hexdigest()
-
-    pack.secret = secret
-    pack.save_db()
-
-    os.mkdir(pack.fpath(""))
-
-    return common.api_ok(token)
+    return common.api_ok(pack.register())

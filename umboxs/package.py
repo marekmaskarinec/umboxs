@@ -1,11 +1,12 @@
 
+import bottle
 import hashlib
+import json
 import os
+import secrets
+import sqlite3
 import tarfile
 import zipfile
-import json
-import bottle
-import sqlite3
 
 conn = None
 
@@ -113,6 +114,16 @@ class Package:
         cur.execute("UPDATE packages SET download_count = ? WHERE name = ?", (self.download_count + 1, self.name))
         cur.close()
         conn.commit()
+        
+    def register(self):
+        token = secrets.token_hex(32)
+        secret = hashlib.blake2b(token.encode()).hexdigest()
+
+        self.secret = secret
+        self.save_db()
+        os.mkdir(self.fpath(""))
+        
+        return token
 
     def exists(self):
         if self.has_db:
