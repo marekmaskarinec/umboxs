@@ -111,7 +111,7 @@ class Package:
             self.load_db()
         self.download_count += 1
         cur = conn.cursor()
-        cur.execute("UPDATE packages SET download_count = ? WHERE name = ?", (self.download_count + 1, self.name))
+        cur.execute("UPDATE packages SET download_count = ? WHERE name = ?", (self.download_count, self.name))
         cur.close()
         conn.commit()
         
