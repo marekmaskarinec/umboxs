@@ -3,6 +3,7 @@ import bottle
 import os
 import brotli
 import mimetypes
+import hashlib
 
 from umboxs import package
 from umboxs import common
@@ -20,7 +21,7 @@ def upload(name, file):
     token = token.split(' ')
     if len(token) != 2 and token[0] != 'UmBox':
         return common.api_error(401, "Unauthorized (invalid Authorization header)")
-    token = token[1]
+    token = hashlib.blake2b(token[1].encode(encoding = 'utf-8')).hexdigest()
 
     if not file in valid_filenames:
         return common.api_error(400, "This filename is not allowed")
