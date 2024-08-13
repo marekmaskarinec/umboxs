@@ -146,8 +146,9 @@ def init_db(path):
 
 def load_all(order = 'name', asc = True) -> list[str]:
     cur = conn.cursor()
-    cur.execute(f"SELECT name from PACKAGES ORDER BY ? {"ASC" if asc else "DESC"}", (order,))
+    cur.execute(f"SELECT name FROM packages ORDER BY ? {"ASC" if asc else "DESC"}", [order])
     res = cur.fetchall()
+    print(res)
     cur.close()
     return [r[0] for r in res]
 
@@ -172,4 +173,8 @@ def browse(name, path):
 @bottle.get('/package/<name>/browse')
 @bottle.get('/package/<name>/browse/')
 def browse_empty(name):
+    p = Package(name)
+    if os.path.exists(p.fpath(f"data/{name}.um")):
+        return browse(name, name + ".um")
+
     return browse(name, "README.md")
