@@ -63,15 +63,38 @@
 		<h3>Last updated</h3>
 		<%
 		import datetime
+		from dateutil import relativedelta
 		import os.path
 		
 		path = os.path.join("packages", meta.get('name'), "data", "box.json")
 		lastupdated = "No uploads yet."
 
 		if os.path.isfile(path):
-			lastupdated = datetime.datetime.fromtimestamp(
-				int(os.path.getmtime(path))
-			).isoformat()
+			diff = relativedelta.relativedelta(
+				datetime.datetime.now(),
+				datetime.datetime.fromtimestamp(int(os.path.getmtime(path)))
+			)
+			
+			if diff.years == 1:
+				lastupdated = "Last year"
+			elif diff.years > 1:
+				lastupdated = f"{diff.years} years ago"
+			elif diff.months == 1:
+				lastupdated = "Last month"
+			elif diff.months > 1:
+				lastupdated = f"{diff.months} months ago"
+			elif diff.days == 1:
+				lastupdated = "Yesterday"
+			elif diff.days > 1:
+				lastupdated = f"{diff.days} days ago"
+			elif diff.hours == 1:
+				lastupdated = f"An hour ago"
+			elif diff.hours > 1:
+				lastupdated = f"{diff.hours} hours ago"
+			elif diff.minutes > 5:
+				lastupdated = f"{diff.minutes} minutes ago"
+			else:
+				lastupdated = "Just now"
 		end
 		%>
 		<p>{{lastupdated}}</p>
