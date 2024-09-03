@@ -25,11 +25,11 @@ Builds as `box.tar` file in the current directory. This archive will contain:
 - the `box.json` file
 - the readme specified in `box.json`
 
-### `init [ <init preset> ]`
+### `init [path] [ -p preset ]`
 
-Creates a new box in the current directory. The box will have the same name
-as the directory. Optionally, you can specify a name of a box, which will
-be used as a preset.
+Creates a new box at path. If path is omitted, the box is created in the
+current directory. The box will have the same name as the directory.
+Optionally, you can specify a name of a box, which will be used as a preset.
 
 > **NOTE:** A box can only be used as a preset, if it has the `init.tar` file
 > uploaded. If you are a maintainer, see: [03-init-presets](/docs/maintainer/guides/03-init-presets.md)

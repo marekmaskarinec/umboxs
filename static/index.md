@@ -52,7 +52,7 @@ Logo credit: Jakub Víta
     <pre><code>curl -L https://umbox.tophat2d.dev/dl/setup.sh | sh
 mkdir my_box
 cd my_box
-umbox init umka
+umbox init -p umka
 umbox run</code></pre>
   </div>
 
@@ -60,7 +60,7 @@ umbox run</code></pre>
     <p>Download the installer <a href="/dl/umbox_install.exe">here</a> and run it.</p>
 <pre><code>mkdir my_box
 cd my_box
-umbox init umka
+umbox init -p umka
 umbox run</code></pre>
   </div>
 
@@ -68,7 +68,7 @@ umbox run</code></pre>
     <p>Download the portable ZIP <a href="/dl/umbox_portable.zip">here</a> and extract it to directory of your liking.</p>
 <pre><code>mkdir my_box
 cd my_box
-path/to/umbox init umka
+path/to/umbox init -p umka
 path/to/umbox run</code></pre>
   </div>
 </div>
