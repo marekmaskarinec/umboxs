@@ -38,29 +38,7 @@
 % end
 		<p><a href="/package/{{pack.name}}/browse">Documentation</a></p>
 		<p>License: <a href="/package/{{pack.name}}/browse/LICENSE">{{meta.get('license')}}</a></p>
-		<p>Download count: {{pack.download_count}}
-		
-		<hr>
-		
-		<p>To add this package to your project run:</p>
-		<code><pre>umbox install {{pack.name}}</pre></code>
-		
-		<p>Or download as a <a href="/api/package/{{pack.name}}/download/box.tar">tar</a>.</p>
-		
-		<hr>
-		
-		<h3>Dependencies</h3>
-		% if len(meta.get('dependencies')) == 0:
-			<p>No dependencies</p>
-		% else:
-		<ul>
-			% for d in meta.get('dependencies'):
-				<li><a href="/package/{{d}}">{{d}}</a></li>
-			% end
-		</ul>
-		% end
-		
-		<h3>Last updated</h3>
+		<p>Download count: {{pack.download_count}}</p>
 		<%
 		import datetime
 		from dateutil import relativedelta
@@ -97,7 +75,27 @@
 				lastupdated = "Just now"
 		end
 		%>
-		<p>{{lastupdated}}</p>
+		<p>Last updated: {{lastupdated}}</p>
+		
+		<hr>
+		
+		<p>To add this package to your project run:</p>
+		<code><pre>umbox install {{pack.name}}</pre></code>
+		
+		<p>Or download as a <a href="/api/package/{{pack.name}}/download/box.tar">tar</a>.</p>
+		
+		<hr>
+		
+		<h3>Dependencies</h3>
+		% if len(meta.get('dependencies')) == 0:
+			<p>No dependencies</p>
+		% else:
+		<ul>
+			% for d in meta.get('dependencies'):
+				<li><a href="/package/{{d}}">{{d}}</a></li>
+			% end
+		</ul>
+		% end
 	</div>
 </div>
 
