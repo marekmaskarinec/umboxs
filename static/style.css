@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root {
 	font-family: "Hind Vadodara", sans-serif;
@@ -260,6 +261,10 @@ table {
 
 th {
 	text-align: left;
+}
+
+code, pre {
+	font-family: "Source Code Pro", monospace;
 }
 
 pre {
