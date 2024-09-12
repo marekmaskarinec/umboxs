@@ -6,7 +6,7 @@
 				<link rel="icon" type="image/png" href="/static/cat.png" />
 </head>
 <body>
-<article>
+<article><div class="article">
 <div class="index">
 	<img class="no-aa" src="/static/cat.png" />
 	<h1>UmBox</h1>
