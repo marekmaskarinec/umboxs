@@ -6,6 +6,7 @@
 	<link rel="icon" type="image/png" href="/static/cat.png" />
 </head>
 <body>
+<div class="wrapper">
 	<header>
 		<div class="nav">
 			<a href="/">
@@ -19,4 +20,4 @@
 			<a href="/static/dl.md">Downloads</a>
 		</div>
 	</header>
-	<article>
+	<article><div class="article">

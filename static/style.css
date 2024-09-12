@@ -75,7 +75,7 @@ h1,h2,h3,h4,h5,h6,hr {
 	color: var(--color-fg);
 }
 
-header img {
+header img, footer img {
 	height: 2rem;
 	vertical-align: text-top;
 }
@@ -85,8 +85,16 @@ body, html {
 }
 
 article {
+	margin: 0;
+	width: 100%;
+	max-width: 100%;
+	padding: 0;
+}
+
+.article {
 	margin: auto;
 	max-width: 1000px;
+	width: 100%;
 }
 
 blockquote {
@@ -275,6 +283,33 @@ pre {
 	overflow: scroll;
 }
 
+footer {
+	width: 100%;
+	margin: 0;
+}
+
+.footer__content {
+	padding: 10px;
+	margin: auto;
+	max-width: 1000px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer__content>*:first-child {
+	flex-grow: 0.5;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.grow {
+	flex: 1;
+}
+
 @media screen and (max-width: 800px) {
 	.package {
 		grid-template-areas: "h" "i" "r";
@@ -287,7 +322,20 @@ pre {
 	}
 
 	article {
-		padding-left: 20px;
-		padding-right: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+		width: calc(100% - 40px);
+	}
+	
+	.nav {
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	
+	.nav > * {
+		padding-top: 10px;
+		flex-basis: 100%;
+		font-size: 1.5em;
+		text-align: center;
 	}
 }
