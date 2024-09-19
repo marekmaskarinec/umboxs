@@ -32,7 +32,7 @@ current directory. The box will have the same name as the directory.
 Optionally, you can specify a name of a box, which will be used as a preset.
 
 > **NOTE:** A box can only be used as a preset, if it has the `init.tar` file
-> uploaded. If you are a maintainer, see: [03-init-presets](/docs/maintainer/guides/03-init-presets.md)
+> uploaded. If you are a maintainer, see: [03-init-presets](/docs/maintainer/03-init-presets.md)
 
 ### `install <box>`
 
