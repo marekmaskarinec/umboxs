@@ -12,7 +12,7 @@ cd hello
 Now you can use UmBox's init functionality to create a new box.
 
 ```
-umbox init umka
+umbox init -p umka
 ```
 
 Then you can easily run the project using the `run` command.
