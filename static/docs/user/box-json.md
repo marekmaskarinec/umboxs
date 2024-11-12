@@ -64,20 +64,14 @@ A list of files or directories that shall be packaged with the build.
 
 ### `run`
 
-A command used before `umbox run` arguments are executed.
-
-### `run_posix`
-
-A version of the run command used on POSIX systems.
-
-### `run_windows`
-
-A version of the run command used on Windows systems.
+A command used before `umbox run` arguments are executed. Supports [platform
+strings](platform-strings.md).
 
 ### `pre_build`
 
-A command ran before a build.
+A command ran before a build. Supports [platform strings](platform-strings.md).
 
 ### `post_build`
 
-A command ran after a build.
+A command ran after a build. Supports [platform strings](platform-strings.md).
+
