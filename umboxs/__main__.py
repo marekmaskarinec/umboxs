@@ -10,6 +10,7 @@ from .endpoints import register_endpoint
 from .endpoints import search_endpoint
 from .endpoints import package_endpoint
 
+
 @bottle.get('/static/<filepath:path>')
 def file(filepath):
     fname, ext = os.path.splitext(filepath)
@@ -86,22 +87,27 @@ if __name__ == "__main__":
     par.add_argument('--port', type=int, default=4832, help='Port to bind to')
     par.add_argument('--debug', action='store_true', help='Enable debug mode')
 
-    par.add_argument('--db', type=str, default=None, help='Path to sqlite3 database')
+    par.add_argument('--db', type=str, default=None,
+                     help='Path to sqlite3 database')
     par.add_argument('--no-register', action='store_true', default=False)
-    
-    par.add_argument('--register', type=str, default=None, help='If provided, registers a new box')
+
+    par.add_argument('--register', type=str, default=None,
+                     help='If provided, registers a new box')
+    par.add_argument('--plausible', type=str, default=None,
+                     help='Plausible tracking domain')
 
     ns = par.parse_args()
-    
+
     register_endpoint.enable = not ns.no_register
 
     if ns.db != None:
         package.init_db(ns.db)
-        
+
     if ns.register != None:
         pack = package.Package(ns.register)
         print(f"{ns.register}:{pack.register()}")
         exit(0)
 
     bottle.TEMPLATES.clear()
+    bottle.BaseTemplate.defaults['plausible'] = ns.plausible
     bottle.run(host=ns.host, port=ns.port, debug=ns.debug)
