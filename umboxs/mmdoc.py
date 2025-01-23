@@ -41,7 +41,7 @@ def getRecord(lines: list[str], i: int):
     ca = lines[dend:cend]
     c = ""
     for j in ca:
-        c += j.strip() + "\n"
+        c += j + "\n"
 
     out = f"## {n}\n\n{d}\n\n"
 
