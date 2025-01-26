@@ -8,9 +8,10 @@ Show help and exit.
 
 ### `-u`, `--url`
 
-Specify URL of the umbox server. Defaults to `https://umbox.tophat2d.dev`
+Specify URL of the UmBox server. Defaults to `https://umbox.tophat2d.dev`.
+This doesn't affect boxes that have changed their source using [box sources](/docs/user/box-sources.md).
 
-### `-d`
+### `-d`, `--debug`
 
 Run in a debug mode. If activated, full stack traces and other extra info will
 be shown.
@@ -36,7 +37,7 @@ Optionally, you can specify a name of a box, which will be used as a preset.
 
 ### `install <box>`
 
-Adds and installs a box. You can specify box sources.
+Adds a box to `box.json` and runs `umbox update`.
 
 ### `remove <box>`
 
@@ -48,8 +49,8 @@ the name.
 This mode is used for running commands in an UmBox environment. In this
 environment, all of the box directories are in the `PATH`.
 
-If your box has a run field in the `box.json`, UmBox will first run that.
-If you pass any argument after the `run`, UmBox will run them as a command.
+First, the command in the run field of `box.json` is executed. Then UmBox
+executes the command-line argument, if any are passed.
 
 ### `search <query>`
 
@@ -57,9 +58,10 @@ Searches for available boxes on the server and prints the results.
 
 ### `update [ -c ]`
 
-Updates all of the dependencies, removing one that are not used anymore.
+Updates all of the dependencies, removing ones that are not used anymore.
 By default, `update` uses symlinks to save drive space, however in some cases,
-this might be undesirable. In these cases, you can pass the `-c` flag.
+this might be undesirable. In these cases, passing the `-c` flag will result
+in each instance of a box having its own hard copy.
 
 > **NOTE:** The `-c` flag is experimental. It is recommended to remove the
 > entire `umbox/` directory before running with `-c`.

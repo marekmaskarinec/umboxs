@@ -1,29 +1,13 @@
 # Installing Boxes
 
-This guide will show how to add boxes to your project.
+The main purpose of UmBox is dependency management. Each box specifies its direct
+dependencies in the `dependencies` array of `box.json`. Whenever you run
+`umbox update`, UmBox will make sure all the required dependencies are installed
+to their latest version and that there are no unneeded boxes installed.
 
-## Adding a box
+This means installing dependencies can be done just by adding the name of the box
+to the `dependencies` array and running `umbox update`. Conversely, uninstalling
+boxes is done by removing them from the `dependencies` array and running `umbox update`.
 
-This can be done in two ways. The first is to add the box's name to the `dependencies` array
-in your `box.json` and then run `umbox update`. The same can be done using the install command.
-
-```
-umbox install <box_name>
-```
-
-## Removing a box
-
-Similarly to adding a box, removing it can also be done in two ways. Either by removing it from the dependency
-list and then running `umbox update`, or using the remove command.
-
-```
-umbox remove <box_name>
-```
-
-## Updating boxes
-
-Boxes can be automatically updated using the update command.
-
-```
-umbox update
-```
+Alternatively, UmBox offers a short hand in form of the `install` and `remove` commands,
+which edit the `box.json` file and automatically run `umbox update`.

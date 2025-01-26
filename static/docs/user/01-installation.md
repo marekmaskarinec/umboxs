@@ -7,6 +7,9 @@ This guide shows how to install the UmBox CLI tool.
 1. Download the EXE [here](/dl/umbox_install.exe)
 2. Go through the steps in the installer.
 
+UmBox will now be installed locally in `%LocalAppData%\umbox` and added
+to the system path.
+
 ## Portable ZIP
 
 UmBox can be downloaded as a portable ZIP, which works without installation on both

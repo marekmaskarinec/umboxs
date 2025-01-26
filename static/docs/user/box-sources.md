@@ -7,8 +7,6 @@ server at `umbox.tophat2d.dev`.
 
 ## Syntax
 
-The syntax is very simple:
-
 ```
 package_name[@source_type://source]
 ```

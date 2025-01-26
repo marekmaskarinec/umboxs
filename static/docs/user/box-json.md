@@ -12,8 +12,9 @@ This file is in the root directory of every box. It specifies metadata about the
     "license": "MIT",
     "description": "John Doe's awesome box for doing awesome stuff",
     "readme": "README.md",
-    "link": "https://git.sr.ht/~jdoe/awesome_box",
-    "dependencies": ["coulau", "umka"],
+    "homepage": "https://awesomebox.mrms.cz",
+    "source": "https://git.sr.ht/~jdoe/awesome_box",
+    "dependencies": ["strings", "umka"],
     "include": ["awesome.um"],
     "run": "umka awesome.um"
 }
@@ -46,11 +47,11 @@ Short description of the box.
 
 Path to the box's readme file.
 
-### `homepage`
+### `homepage` (optional)
 
-A link to the homepage of the project.
+A link to the homepage of the project. This should be a web page.
 
-### `source`
+### `source` (optional)
 
 A link to the sourcecode of the project. It should point directly to a downloadable file or a clonable repository.
 
@@ -62,16 +63,14 @@ A list of boxes this box depends on.
 
 A list of files or directories that shall be packaged with the build.
 
-### `run`
+### `run` (optional)
 
-A command used before `umbox run` arguments are executed. Supports [platform
-strings](platform-strings.md).
+A command used before `umbox run` arguments are executed. Supports [platform strings](platform-strings.md).
 
-### `pre_build`
+### `pre_build` (optional)
 
 A command ran before a build. Supports [platform strings](platform-strings.md).
 
-### `post_build`
+### `post_build` (optional)
 
 A command ran after a build. Supports [platform strings](platform-strings.md).
-
