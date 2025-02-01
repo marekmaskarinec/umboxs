@@ -39,7 +39,7 @@ Setting up builds using [builds.sr.ht](https://builds.sr.ht) is very easy.
 First, you need to set up a secret for your token on the website. Set it up according to
 the image.
 
-![](/static/docs/maintainer/guides/02--secret-setup.png)
+![](02--secret-setup.png)
 
 After setting up the secret, you have to add a `.build.yml` to your repository root.
 This file has already been created and all you need to do to make it works is change a few lines.

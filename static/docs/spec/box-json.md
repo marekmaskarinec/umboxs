@@ -1,6 +1,6 @@
 # `box.json` File
 
-This file is in the root directory of every box. It specifies metadata about the it.
+This file is in the root directory of every box. It specifies metadata about the box.
 
 ## Example
 

@@ -1,4 +1,4 @@
-# Installing Boxes
+# Installing Packages
 
 The main purpose of UmBox is dependency management. Each box specifies its direct
 dependencies in the `dependencies` array of `box.json`. Whenever you run

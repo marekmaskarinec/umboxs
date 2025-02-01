@@ -9,7 +9,7 @@ Show help and exit.
 ### `-u`, `--url`
 
 Specify URL of the UmBox server. Defaults to `https://umbox.tophat2d.dev`.
-This doesn't affect boxes that have changed their source using [box sources](/docs/user/box-sources.md).
+This doesn't affect boxes that have changed their source using [box sources](/docs/spec/box-sources.md).
 
 ### `-d`, `--debug`
 
