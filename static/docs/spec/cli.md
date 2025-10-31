@@ -44,13 +44,14 @@ Adds a box to `box.json` and runs `umbox update`.
 Removes a box. Here, box sources are irrelevant - the box is matched based on
 the name.
 
-### `run [ <command> ]`
+### `run [ <command>|<args> ]`
+
+If the `run` field in `box.json` is defined, runs it's content with the command
+line arguments appended. Otherwise runs the command line arguments as a
+command.
 
 This mode is used for running commands in an UmBox environment. In this
 environment, all of the box directories are in the `PATH`.
-
-First, the command in the run field of `box.json` is executed. Then UmBox
-executes the command-line argument, if any are passed.
 
 ### `search <query>`
 
