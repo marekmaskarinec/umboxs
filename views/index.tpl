@@ -34,7 +34,7 @@
   href="https://github.com/vtereshkov/umka-lang">Umka</a>. It can manage
   dependencies for Umka libraries and programs. It features a web UI with an
   automatic API reference generator (using <a
-  href="https://git.sr.ht/~mrms/mmdoc">MMDOC</a> syntax) and other useful
+  href="https://github.com/marekmaskarinec/mmdoc">MMDOC</a> syntax) and other useful
   features. The official UmBox repository is hosted here at tophat2d.dev, but it
   is possible to host your own repository if needed.
 
